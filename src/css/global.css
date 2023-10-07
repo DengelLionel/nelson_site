@@ -1,0 +1,112 @@
+main{
+  background-color: #fafafa;
+}
+.descripcion ul li{
+  list-style-type: disc !important;
+ 
+}
+.descripcion{
+  padding-left: 25px;
+}
+.embla_slide{
+    @apply relative transition-opacity duration-200 ease-in-out;
+}
+.embla_slide{
+    flex:0 50 100%;
+    min-width: 300px;
+    padding-left: 1rem;
+   
+}
+
+.embla_slide_product {
+  @apply relative transition-opacity duration-200 ease-in-out;
+}
+.embla_slide_product{
+  flex:0 0 100%;
+  min-width: 0;
+  padding-left: 1rem;
+}
+.embla {
+  @apply p-4;
+  --slide-spacing: 1rem;
+  --slide-size: 100%;
+  --slide-height: 5rem;
+}
+.embla__viewport {
+  @apply overflow-hidden w-[300px] lg:w-[500px];
+}
+.embla__container {
+  @apply flex row-auto ;
+}
+.embla__container {
+  backface-visibility: hidden;
+  margin-left: calc(var(--slide-spacing) * -1);
+}
+
+.embla__slide__img {
+  @apply block w-full object-cover;
+  height: 5rem;
+}
+.embla__slide__number {
+  @apply absolute top-2 right-2 w-16 h-16 rounded-full bg-black bg-opacity-50 z-10 text-center pointer-events-none;
+  line-height: 4.6rem;
+  font-weight: 900;
+}
+.embla__slide__number > span {
+  @apply block absolute top-0 left-0 right-0 bottom-0 text-transparent font-semibold text-2xl;
+  color: var(--brand-primary);
+  background-image: linear-gradient(45deg, var(--brand-primary), var(--brand-secondary));
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.embla-thumbs {
+  @apply mt-2 w-auto lg:w-[500px];
+}
+
+.embla-thumbs__viewport {
+  @apply overflow-hidden w-[200px] h-[200px] lg:w-[500px];
+}
+
+.embla-thumbs__container {
+  @apply flex flex-row w-auto lg:w-[500px];
+}
+
+.embla-thumbs__slide {
+  @apply flex-none w-28 min-w-0 pl-2 relative;
+}
+
+@media (min-width: 576px) {
+  .embla-thumbs__slide {
+    @apply w-[200px] h-[200px]; 
+  }
+}
+
+.embla-thumbs__slide__button {
+  @apply bg-transparent block cursor-pointer border-0 p-0 m-0 w-auto opacity-20 transition-opacity duration-200;
+}
+
+.embla-thumbs__slide--selected .embla-thumbs__slide__button {
+  @apply opacity-100;
+}
+
+
+
+.embla-thumbs__slide__number {
+  @apply w-12 h-12 z-10 absolute top-3 right-3 rounded-full bg-opacity-80 text-center pointer-events-none;
+  /* font-weight, line-height, and background-color need custom utility classes or inline styles */
+  line-height: 3rem;
+  font-weight: 900;
+  background-color: rgba(var(--background-site-rgb-value), 0.85); /* replace with your value */
+}
+
+.embla-thumbs__slide__number > span {
+  @apply block absolute inset-0;
+  /* The rest needs custom utility classes or inline styles */
+  font-size: 1.4rem;
+  color: var(--brand-primary); /* replace with your value */
+  background-image: linear-gradient(45deg, var(--brand-primary), var(--brand-secondary)); /* replace with your values */
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}

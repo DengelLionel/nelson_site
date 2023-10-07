@@ -1,0 +1,270 @@
+[{
+    "Azuay":
+        {
+            "CAMILO PONCE ENRÍQUEZ":"CAMILO PONCE ENRÍQUEZ",
+            "CHORDELEG":"CHORDELEG",
+            "CUENCA":"CUENCA",
+            "EL PAN":"EL PAN",
+            "GIRÓN":"GIRÓN",
+            "GUACHAPALA":"GUACHAPALA",
+            "GUALACEO":"GUALACEO",
+            "NABÓN":"NABÓN",
+            "OÑA":"OÑA",
+            "PAUTE":"PAUTE",
+            "PUCARA":"PUCARA",
+            "SAN FERNANDO":"SAN FERNANDO",
+            "SANTA ISABEL":"SANTA ISABEL",
+            "SEVILLA DE ORO":"SEVILLA DE ORO",
+            "SIGSIG":"SIGSIG"
+        }
+    ,
+    "Bolivar":{
+        "CALUMA": "CALUMA",
+        "CHILLANES":"CHILLANES",
+        "CHIMBO":"CHIMBO",
+        "ECHEANDÍA":"ECHEANDÍA",
+        "GUARANDA": "GUARANDA",
+        "LAS NAVES":"LAS NAVES",
+        "SAN MIGUEL":"SAN MIGUEL"
+    },
+    "Cañar":{
+        "AZOGUES":"AZOGUES",
+        "BIBLIÁN":"BIBLIÁN",
+        "CAÑAR": "CAÑAR",
+        "DÉLEG":"DÉLEG",
+        "EL TAMBO":"EL TAMBO",
+        "LA TRONCAL":"LA TRONCAL",
+        "SUSCAL":"SUSCAL"
+    },
+    "Carchi":{
+        "BOLÍVAR":"BOLÍVAR",
+        "ESPEJO":"ESPEJO",
+        "MIRA":"MIRA",
+        "MONTÚFAR":"MONTÚFAR",
+        "SAN PEDRO DE HUACA":"SAN PEDRO DE HUACA",
+        "TULCÁN":"TULCÁN"
+    },
+    "Chimborazo":{
+        "ALAUSI":"ALAUSI",
+        "CHAMBO":"CHAMBO",
+        "CHUNCHI":"CHUNCHI",
+        "COLTA":"COLTA",
+        "CUMANDÁ":"CUMANDÁ",
+        "GUAMOTE":"GUAMOTE",
+        "GUANO":"GUANO",
+        "PALLATANGA":"PALLATANGA",
+        "PENIPE":"PENIPE",
+        "RIOBAMBA":"RIOBAMBA"
+    },
+    "Cotopaxi":{
+        "LA MANÁ":"LA MANÁ",
+        "LATACUNGA":"LATACUNGA",
+        "PANGUA":"PANGUA",
+        "PUJILI":"PUJILI",
+        "SALCEDO":"SALCEDO",
+        "SAQUISILÍ":"SAQUISILÍ",
+        "SIGCHOS":"SIGCHOS"
+    },
+    "El Oro":{
+        "ARENILLAS":"ARENILLAS",
+        "ATAHUALPA":"ATAHUALPA",
+        "BALSAS":"BALSAS",
+        "CHILLA":"CHILLA",
+        "EL GUABO":"EL GUABO",
+        "HUAQUILLAS":"HUAQUILLAS",
+        "LAS LAJAS":"LAS LAJAS",
+        "MACHALA":"MACHALA",
+        "MARCABELÍ":"MARCABELÍ",
+        "PASAJE":"PASAJE",
+        "PIÑAS":"PIÑAS",
+        "PORTOVELO":"PORTOVELO",
+        "SANTA ROSA":"SANTA ROSA",
+        "ZARUMA":"ZARUMA"
+    },
+    "Esmeralda":{
+        "ATACAMES":"ATACAMES",
+        "ELOY ALFARO":"ELOY ALFARO",
+        "ESMERALDAS":"ESMERALDAS",
+        "LA CONCORDIA":"LA CONCORDIA",
+        "MUISNE":"MUISNE",
+        "QUININDÉ":"QUININDÉ",
+        "RIOVERDE":"RIOVERDE",
+        "SAN LORENZO":"SAN LORENZO"
+    },
+    "Galapagos":{
+        "ISABELA":"ISABELA",
+        "SAN CRISTÓBAL":"SAN CRISTÓBAL",
+        "SANTA CRUZ":"SANTA CRUZ"
+    },
+    "Guayas":{
+        "ALFREDO BAQUERIZO MORENO (JUJÁN)":"ALFREDO BAQUERIZO MORENO (JUJÁN)",
+        "BALAO":"BALAO",
+        "BALZAR":"BALZAR",
+        "COLIMES":"COLIMES",
+        "CORONEL MARCELINO MARIDUEÑA (SAN CARLOS)":"CORONEL MARCELINO MARIDUEÑA (SAN CARLOS)",
+        "DAULE":"DAULE",
+        "DURÁN":"DURÁN",
+        "EL EMPALME":"EL EMPALME",
+        "EL TRIUNFO":"EL TRIUNFO",
+        "GENERAL ANTONIO ELIZALDE":"GENERAL ANTONIO ELIZALDE",
+        "GUAYAQUIL":"GUAYAQUIL",
+        "ISIDRO AYORA":"ISIDRO AYORA",
+        "LOMAS DE SARGENTILLO":"LOMAS DE SARGENTILLO",
+        "MILAGRO":"MILAGRO",
+        "NARANJAL":"NARANJAL",
+        "NARANJITO":"NARANJITO",
+        "NOBOL":"NOBOL",
+        "PALESTINA":"PALESTINA",
+        "PEDRO CARBO":"PEDRO CARBO",
+        "PLAYAS":"PLAYAS",
+        "SALITRE (URBINA JADO)":"SALITRE (URBINA JADO)","SAMBORONDÓN":"SAMBORONDÓN",
+        "SAN JACINTO DE YAGUACHI":"SAN JACINTO DE YAGUACHI",
+        "SANTA LUCÍA":"SANTA LUCÍA",
+        "SIMÓN BOLÍVAR":"SIMÓN BOLÍVAR"
+    },
+    "Imbabura":{
+        "ANTONIO ANTE":"ANTONIO ANTE",
+        "COTACACHI":"COTACACHI",
+        "IBARRA":"IBARRA",
+        "OTAVALO":"OTAVALO",
+        "PIMAMPIRO":"PIMAMPIRO",
+        "SAN MIGUEL DE URCUQUÍ":"SAN MIGUEL DE URCUQUÍ"
+    },
+    "Loja":{
+        "CALVAS":"CALVAS",
+        "CATAMAYO":"CATAMAYO",
+        "CELICA":"CELICA",
+        "CHAGUARPAMBA":"CHAGUARPAMBA",
+        "ESPÍNDOLA":"ESPÍNDOLA",
+        "GONZANAMÁ":"GONZANAMÁ",
+        "LOJA":"LOJA",
+        "MACARÁ":"MACARÁ",
+        "OLMEDO":"OLMEDO",
+        "PALTAS":"PALTAS",
+        "PINDAL":"PINDAL",
+        "PUYANGO":"PUYANGO",
+        "QUILANGA":"QUILANGA",
+        "SARAGURO":"SARAGURO",
+        "SOZORANGA":"SOZORANGA",
+        "ZAPOTILLO":"ZAPOTILLO"
+    },
+    "Los Rios":{
+        "BABA":"BABA",
+        "BABAHOYO":"BABAHOYO",
+        "BUENA FÉ":"BUENA FÉ",
+        "MOCACHE":"MOCACHE",
+        "MONTALVO":"MONTALVO",
+        "PALENQUE":"PALENQUE",
+        "PUEBLOVIEJO":"PUEBLOVIEJO",
+        "QUEVEDO":"QUEVEDO",
+        "QUINSALOMA":"QUINSALOMA",
+        "URDANETA":"URDANETA",
+        "VENTANAS":"VENTANAS",
+        "VÍNCES":"VÍNCES"
+    },
+    "Manabi":{
+        "24 DE MAYO":"24 DE MAYO",
+        "BOLÍVAR":"BOLÍVAR",
+        "CHONE":"CHONE",
+        "EL CARMEN":"EL CARMEN",
+        "FLAVIO ALFARO":"FLAVIO ALFARO",
+        "JAMA":"JAMA",
+        "JARAMIJÓ":"JARAMIJÓ",
+        "JIPIJAPA":"JIPIJAPA",
+        "JUNÍN":"JUNÍN",
+        "MANTA":"MANTA",
+        "MONTECRISTI":"MONTECRISTI",
+        "OLMEDO":"OLMEDO",
+        "PAJÁN":"PAJÁN",
+        "PEDERNALES":"PEDERNALES",
+        "PICHINCHA":"PICHINCHA",
+        "PORTOVIEJO":"PORTOVIEJO",
+        "PUERTO LÓPEZ":"PUERTO LÓPEZ",
+        "ROCAFUERTE":"ROCAFUERTE",
+        "SAN VICENTE":"SAN VICENTE",
+        "SANTA ANA":"SANTA ANA",
+        "SUCRE":"SUCRE",
+        "TOSAGUA":"TOSAGUA"
+    },
+    "Morena Santiago":{
+        "GUALAQUIZA":"GUALAQUIZA",
+        "HUAMBOYA":"HUAMBOYA",
+        "LIMÓN INDANZA":"LIMÓN INDANZA",
+        "LOGROÑO":"LOGROÑO",
+        "MORONA":"MORONA",
+        "PABLO SEXTO":"PABLO SEXTO",
+        "PALORA":"PALORA",
+        "SAN JUAN BOSCO":"SAN JUAN BOSCO",
+        "SANTIAGO":"SANTIAGO",
+        "SUCÚA":"SUCÚA",
+        "TAISHA":"TAISHA",
+        "TIWINTZA":"TIWINTZA"
+    },
+    "Napo":{
+        "ARCHIDONA":"ARCHIDONA",
+        "CARLOS JULIO AROSEMENA TOLA":"CARLOS JULIO AROSEMENA TOLA","EL CHACO":"EL CHACO",
+        "QUIJOS":"QUIJOS",
+        "TENA":"TENA"
+    },
+    "Orellana":
+        {
+            "AGUARICO":"AGUARICO",
+            "LA JOYA DE LOS SACHAS":"LA JOYA DE LOS SACHAS","LORETO":"LORETO","ORELLANA":"ORELLANA"
+        }
+    ,
+    "Pastaza":{
+        "ARAJUNO":"ARAJUNO",
+        "MERA":"MERA",
+        "PASTAZA":"PASTAZA",
+        "SANTA CLARA":"SANTA CLARA"
+    },
+    "Pichincha":{
+        "CAYAMBE":"CAYAMBE",
+        "MEJIA":"MEJIA",
+        "PEDRO MONCAYO":"PEDRO MONCAYO",
+        "PEDRO VICENTE MALDONADO":"PEDRO VICENTE MALDONADO",
+        "PUERTO QUITO":"PUERTO QUITO",
+        "QUITO":"QUITO",
+        "RUMIÑAHUI":"RUMIÑAHUI",
+        "SAN MIGUEL DE LOS BANCOS":"SAN MIGUEL DE LOS BANCOS"
+    },
+    "Santa Elena":{
+        "LA LIBERTAD":"LA LIBERTAD",
+        "SALINAS":"SALINAS",
+        "SANTA ELENA":"SANTA ELENA"
+    },
+    "Sto. Domingo de los Tsachilas":{
+        "SANTO DOMINGO":"SANTO DOMINGO"
+    },
+    "Sucumbios":{
+        "CASCALES": "CASCALES",
+        "CUYABENO":"CUYABENO",
+        "GONZALO PIZARRO":"GONZALO PIZARRO",
+        "LAGO AGRIO":"LAGO AGRIO",
+        "PUTUMAYO":"PUTUMAYO",
+        "SHUSHUFINDI":"SHUSHUFINDI",
+        "SUCUMBÍOS":"SUCUMBÍOS"
+    },
+    "Tungurahua":{
+        "AMBATO":"AMBATO",
+        "BAÑOS DE AGUA SANTA":"BAÑOS DE AGUA SANTA",
+        "CEVALLOS":"CEVALLOS",
+        "MOCHA":"MOCHA",
+        "PATATE":"PATATE","QUERO":"QUERO",
+        "SAN PEDRO DE PELILEO":"SAN PEDRO DE PELILEO",
+        "SANTIAGO DE PÍLLARO":"SANTIAGO DE PÍLLARO",
+        "TISALEO":"TISALEO"
+    },
+    "Zamora Chinchipe":{
+        "CENTINELA DEL CÓNDOR":"CENTINELA DEL CÓNDOR",
+        "CHINCHIPE":"CHINCHIPE",
+        "EL PANGUI":"EL PANGUI",
+        "NANGARITZA":"NANGARITZA",
+        "PALANDA":"PALANDA",
+        "PAQUISHA":"PAQUISHA",
+        "YACUAMBI":"YACUAMBI",
+        "YANTZAZA (YANZATZA)":"YANTZAZA (YANZATZA)",
+        "ZAMORA":"ZAMORA"
+    }
+}]
+
