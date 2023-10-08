@@ -467,7 +467,7 @@ const Formulario = () => {
                             )
                         }
                         id="tipo_certificado">
-                        <option selected>Seleccione Identidad</option>
+                        <option >Seleccione Identidad</option>
                         <option value="CEDULA">CEDULA</option>
                         <option value="PASAPORTE">PASAPORTE</option>
                     </select>
