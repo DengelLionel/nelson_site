@@ -150,13 +150,14 @@ const Formulario = () => {
             setErrorServer(error)
         }
     }
-    useEffect({}, [errorServer])
+ 
     return (
         <form onSubmit={handleSubmit} className="mt-8 space-y-6">
             <div className="rounded-md shadow-sm -space-y-px">
                 <input type="hidden" value={pdfConstitucionCompañia_preview} />
                 <input type="hidden" value={pdfruc_preview} />
                 <input type="hidden" value={pdfNombramiento_preview} />
+                <input type="hidden" value={errorServer} />
                 <div>
                     <label htmlFor="numero_ruc" className="sr-only">
                         Número de RUC{' '}

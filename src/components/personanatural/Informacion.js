@@ -137,7 +137,7 @@ const Informacion = () => {
             setErrorServer(error)
         }
     }
-    useEffect({}, [errorServer])
+
     return (
         <form onSubmit={handleSubmit} className="mt-8 space-y-6">
             <div className="rounded-md shadow-sm -space-y-px">
@@ -147,6 +147,7 @@ const Informacion = () => {
 
                 {/* Campo de entrada: documento_identidad */}
                 <input value={pdfPreview} type="hidden" />
+                <input value={errorServer} type="hidden" />
                 <div>
                     <input value={dia_creado} type="hidden" id="dia_creado" />
                     <label htmlFor="documento_identidad" className="sr-only">
