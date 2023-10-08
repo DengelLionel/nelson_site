@@ -199,7 +199,7 @@ const Formulario = () => {
             setErrorServer(error)
         }
     }
-   
+
     return (
         <form onSubmit={handleSubmit} className="mt-8 space-y-6">
             <input type="hidden " value={pdfruc_preview} />
@@ -455,9 +455,7 @@ const Formulario = () => {
             <div className="max-w-md w-full space-y-8 bg-white p-6 rounded-xl shadow-lg">
                 <div />
                 <div>
-                    <label htmlFor="formato" className="sr-only">
-                        Tipo de Documento
-                    </label>
+                    <label className="sr-only">Tipo de Documento</label>
                     <select
                         className="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
                         name="tipo_certificado"
@@ -467,7 +465,7 @@ const Formulario = () => {
                             )
                         }
                         id="tipo_certificado">
-                        <option >Seleccione Identidad</option>
+                        <option>Seleccione Identidad</option>
                         <option value="CEDULA">CEDULA</option>
                         <option value="PASAPORTE">PASAPORTE</option>
                     </select>
