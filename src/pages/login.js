@@ -76,7 +76,7 @@ const Login = () => {
 
                     {/* Password */}
                     <div className="mt-4">
-                        <Label htmlFor="password">Password</Label>
+                        <Label htmlFor="password">Contraseña</Label>
 
                         <Input
                             id="password"
