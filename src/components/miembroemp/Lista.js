@@ -1,5 +1,4 @@
 import { useEffect, useState } from 'react'
-import Link from 'next/link'
 import { saveAs } from 'file-saver'
 import axios from '@/lib/axios'
 const Lista = ({ datos }) => {
@@ -194,48 +193,48 @@ const Lista = ({ datos }) => {
                             </td>
                             <td>
                                 <div className="flex flex-row mb-3">
-                                    <Link
+                                    <a
                                         className="btn btn-success m-1"
                                         href={`api.firmaelectronicaec.com/miembroEmpresa/anverso/${dato.imagen_anverso}`}
                                         download>
                                         Imagen Anverso
-                                    </Link>
-                                    <Link
+                                    </a>
+                                    <a
                                         className="btn btn-info m-1"
                                         href={`api.firmaelectronicaec.com/miembroEmpresa/reverso/${dato.imagen_reverso}`}
                                         download>
                                         Imagen Reverso
-                                    </Link>
-                                    <Link
+                                    </a>
+                                    <a
                                         className="btn btn-secondary m-1"
                                         href={`api.firmaelectronicaec.com/miembroEmpresa/selfie/${dato.imagen_selfie}`}
                                         download>
                                         Imagen Selfie
-                                    </Link>
-                                    <Link
+                                    </a>
+                                    <a
                                         className="btn btn-secondary m-1"
                                         href={`api.firmaelectronicaec.com/miembroEmpresa/pdf/${dato.pdf}`}
                                         download>
                                         RUC
-                                    </Link>
-                                    <Link
+                                    </a>
+                                    <a
                                         className="btn btn-secondary m-1"
                                         href={`api.firmaelectronicaec.com/miembroEmpresa/constitucionCompañia/${dato.constitucion_compañia}`}
                                         download>
                                         Constitución de compañia
-                                    </Link>
-                                    <Link
+                                    </a>
+                                    <a
                                         className="btn btn-secondary m-1"
                                         href={`api.firmaelectronicaec.com/miembroEmpresa/nombramiento/${dato.nombramiento}`}
                                         download>
                                         Nombramiento
-                                    </Link>
-                                    <Link
+                                    </a>
+                                    <a
                                         className="btn btn-secondary m-1"
                                         href={`api.firmaelectronicaec.com/miembroEmpresa/autorizacion/${dato.autorizacion_representante}`}
                                         download>
                                         Autorizacion R.
-                                    </Link>
+                                    </a>
                                 </div>
                             </td>
                         </tr>
