@@ -15,7 +15,7 @@ const Lista = ({ datos }) => {
             saveAs(blob, `${dia}-re_legal_juridica.xlsx`)
      
     }
-  
+  console.log("daat",datos)
     return (
         <div className="overflow-x-auto">
             <h5 className="mb-4">REPRESENTANTE LEGAL O PERSONA JURIDICA</h5>
