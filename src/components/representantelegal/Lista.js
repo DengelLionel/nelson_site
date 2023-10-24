@@ -163,37 +163,37 @@ const Lista = ({ datos }) => {
                                 <div className="flex flex-row mb-3">
                                     <Link
                                         className="btn btn-success m-1"
-                                        href={`api.firmaelectronicaec.com/representanteLegal/anverso/${dato.imagen_anverso}`}
+                                        href={`api.firmaelectronicaec.com/representanteLegal/anverso/${dato.imagen_anverso&&dato.imagen_anverso}`}
                                         download>
                                         Imagen Anverso
                                     </Link>
                                     <Link
                                         className="btn btn-info m-1"
-                                        href={`api.firmaelectronicaec.com/representanteLegal/reverso/${dato.imagen_reverso}`}
+                                        href={`api.firmaelectronicaec.com/representanteLegal/reverso/${dato.imagen_reverso&&dato.imagen_reverso}`}
                                         download>
                                         Imagen Reverso
                                     </Link>
                                     <Link
                                         className="btn btn-secondary m-1"
-                                        href={`api.firmaelectronicaec.com/representanteLegal/selfie/${dato.imagen_selfie}`}
+                                        href={`api.firmaelectronicaec.com/representanteLegal/selfie/${dato.imagen_selfie&&dato.imagen_selfie}`}
                                         download>
                                         Imagen Selfie
                                     </Link>
                                     <Link
                                         className="btn btn-secondary m-1"
-                                        href={`api.firmaelectronicaec.com/representanteLegal/pdf/${dato.pdf}`}
+                                        href={`api.firmaelectronicaec.com/representanteLegal/pdf/${dato.pdf&&dato.pdf}`}
                                         download>
                                         RUC
                                     </Link>
                                     <Link
                                         className="btn btn-secondary m-1"
-                                        href={`api.firmaelectronicaec.com/representanteLegal/constitucionCompañia/${dato.constitucion_compañia}`}
+                                        href={`api.firmaelectronicaec.com/representanteLegal/constitucionCompañia/${dato.constitucion_compañia&&dato.constitucion_compañia}`}
                                         download>
                                         Constitución de compañia
                                     </Link>
                                     <Link
                                         className="btn btn-secondary m-1"
-                                        href={`api.firmaelectronicaec.com/representanteLegal/nombramiento/${dato.nombramiento}`}
+                                        href={`api.firmaelectronicaec.com/representanteLegal/nombramiento/${dato.nombramiento&&dato.nombramiento}`}
                                         download>
                                         Nombramiento
                                     </Link>
