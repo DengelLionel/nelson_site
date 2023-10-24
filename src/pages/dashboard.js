@@ -10,7 +10,7 @@ const Dashboard = () => {
                 </div>
             }>
             <Head>
-                <title>Dashboard Nexomedic</title>
+                <title>Dashboard </title>
             </Head>
 
             <div className="py-12">

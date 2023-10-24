@@ -195,43 +195,43 @@ const Lista = ({ datos }) => {
                                 <div className="flex flex-row mb-3">
                                     <a
                                         className="btn btn-success m-1"
-                                        href={`api.firmaelectronicaec.com/miembroEmpresa/anverso/${dato.imagen_anverso}`}
+                                        href={`https://api.firmaelectronicaec.com/miembroEmpresa/anverso/${dato.imagen_anverso}`}
                                         download>
                                         Imagen Anverso
                                     </a>
                                     <a
                                         className="btn btn-info m-1"
-                                        href={`api.firmaelectronicaec.com/miembroEmpresa/reverso/${dato.imagen_reverso}`}
+                                        href={`https://api.firmaelectronicaec.com/miembroEmpresa/reverso/${dato.imagen_reverso}`}
                                         download>
                                         Imagen Reverso
                                     </a>
                                     <a
                                         className="btn btn-secondary m-1"
-                                        href={`api.firmaelectronicaec.com/miembroEmpresa/selfie/${dato.imagen_selfie}`}
+                                        href={`https://api.firmaelectronicaec.com/miembroEmpresa/selfie/${dato.imagen_selfie}`}
                                         download>
                                         Imagen Selfie
                                     </a>
                                     <a
                                         className="btn btn-secondary m-1"
-                                        href={`api.firmaelectronicaec.com/miembroEmpresa/pdf/${dato.pdf}`}
+                                        href={`https://api.firmaelectronicaec.com/miembroEmpresa/pdf/${dato.pdf}`}
                                         download>
                                         RUC
                                     </a>
                                     <a
                                         className="btn btn-secondary m-1"
-                                        href={`api.firmaelectronicaec.com/miembroEmpresa/constitucionCompañia/${dato.constitucion_compañia}`}
+                                        href={`https://api.firmaelectronicaec.com/miembroEmpresa/constitucionCompañia/${dato.constitucion_compañia}`}
                                         download>
                                         Constitución de compañia
                                     </a>
                                     <a
                                         className="btn btn-secondary m-1"
-                                        href={`api.firmaelectronicaec.com/miembroEmpresa/nombramiento/${dato.nombramiento}`}
+                                        href={`https://api.firmaelectronicaec.com/miembroEmpresa/nombramiento/${dato.nombramiento}`}
                                         download>
                                         Nombramiento
                                     </a>
                                     <a
                                         className="btn btn-secondary m-1"
-                                        href={`api.firmaelectronicaec.com/miembroEmpresa/autorizacion/${dato.autorizacion_representante}`}
+                                        href={`https://api.firmaelectronicaec.com/miembroEmpresa/autorizacion/${dato.autorizacion_representante}`}
                                         download>
                                         Autorizacion R.
                                     </a>
