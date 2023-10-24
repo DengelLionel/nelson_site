@@ -1,5 +1,5 @@
-import { useEffect, useState } from 'react'
-import { saveAs } from 'file-saver'
+import {  useState } from 'react'
+ import { saveAs } from 'file-saver' 
 import axios from '@/lib/axios'
 const Lista = ({ datos }) => {
     const [dia, setDia] = useState('')
@@ -15,7 +15,7 @@ const Lista = ({ datos }) => {
             saveAs(blob, `${dia}-re_legal_juridica.xlsx`)
      
     }
-    useEffect({}, [errorServer])
+  
     return (
         <div className="overflow-x-auto">
             <h5 className="mb-4">REPRESENTANTE LEGAL O PERSONA JURIDICA</h5>
