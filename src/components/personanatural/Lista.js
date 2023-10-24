@@ -139,24 +139,24 @@ const Lista = ({ datos }) => {
                             <td>{dato.vigencia}</td>
                             <td>
                                 <div className="flex flex-row mb-3">
-                                    <Link
+                                    <a
                                         className="btn btn-success m-1"
                                         href={`api.firmaelectronicaec.com/personanatura/anverso/${dato.imagen_anverso}`}
                                         download>
                                         Imagen Anverso
-                                    </Link>
-                                    <Link
+                                    </a>
+                                    <a
                                         className="btn btn-info m-1"
                                         href={`api.firmaelectronicaec.com/personanatura/reverso/${dato.imagen_reverso}`}
                                         download>
                                         Imagen Reverso
-                                    </Link>
-                                    <Link
+                                    </a>
+                                    <a
                                         className="btn btn-secondary m-1"
                                         href={`api.firmaelectronicaec.com/personanatura/selfie/${dato.imagen_selfie}`}
                                         download>
                                         Imagen Selfie
-                                    </Link>
+                                    </a>
                                 </div>
                             </td>
                             <td>
