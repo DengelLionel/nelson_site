@@ -3,9 +3,8 @@ import { saveAs } from 'file-saver'
 import axios from '@/lib/axios'
 const Lista = ({ datos }) => {
     const [dia, setDia] = useState('')
-    const [errorServer, setErrorServer] = useState(null)
     const handleExport = async () => {
-        try {
+     
             const response = await axios.get(
                 `/api/descargarlegalexcel?date=${dia}`,
                 { responseType: 'blob' },
@@ -14,9 +13,7 @@ const Lista = ({ datos }) => {
                 type: 'application/vnd.ms-excel',
             })
             saveAs(blob, `${dia}-re_legal_juridica.xlsx`)
-        } catch (err) {
-            setErrorServer(err)
-        }
+     
     }
     useEffect({}, [errorServer])
     return (
