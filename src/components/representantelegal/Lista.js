@@ -1,5 +1,4 @@
 import { useEffect, useState } from 'react'
-import Link from 'next/link'
 import { saveAs } from 'file-saver'
 import axios from '@/lib/axios'
 const Lista = ({ datos }) => {
@@ -93,7 +92,7 @@ const Lista = ({ datos }) => {
                 </thead>
                 <tbody className="bg-white divide-y divide-gray-200">
                     {/* Aquí van las filas de la tabla. Puedes mapear sobre los datos para generar las filas. */}
-                    {datos?.map(dato => (
+                    {datos&&datos?.map(dato => (
                         <tr
                             key={dato.id}
                             className="bg-white border-b border-gray-200 text-sm">
@@ -161,42 +160,42 @@ const Lista = ({ datos }) => {
                             </td>
                             <td>
                                 <div className="flex flex-row mb-3">
-                                    <Link
+                                    <a
                                         className="btn btn-success m-1"
                                         href={`api.firmaelectronicaec.com/representanteLegal/anverso/${dato.imagen_anverso&&dato.imagen_anverso}`}
                                         download>
                                         Imagen Anverso
-                                    </Link>
-                                    <Link
+                                    </a>
+                                    <a
                                         className="btn btn-info m-1"
                                         href={`api.firmaelectronicaec.com/representanteLegal/reverso/${dato.imagen_reverso&&dato.imagen_reverso}`}
                                         download>
                                         Imagen Reverso
-                                    </Link>
-                                    <Link
+                                    </a>
+                                    <a
                                         className="btn btn-secondary m-1"
                                         href={`api.firmaelectronicaec.com/representanteLegal/selfie/${dato.imagen_selfie&&dato.imagen_selfie}`}
                                         download>
                                         Imagen Selfie
-                                    </Link>
-                                    <Link
+                                    </a>
+                                    <a
                                         className="btn btn-secondary m-1"
                                         href={`api.firmaelectronicaec.com/representanteLegal/pdf/${dato.pdf&&dato.pdf}`}
                                         download>
                                         RUC
-                                    </Link>
-                                    <Link
+                                    </a>
+                                    <a
                                         className="btn btn-secondary m-1"
                                         href={`api.firmaelectronicaec.com/representanteLegal/constitucionCompañia/${dato.constitucion_compañia&&dato.constitucion_compañia}`}
                                         download>
                                         Constitución de compañia
-                                    </Link>
-                                    <Link
+                                    </a>
+                                    <a
                                         className="btn btn-secondary m-1"
                                         href={`api.firmaelectronicaec.com/representanteLegal/nombramiento/${dato.nombramiento&&dato.nombramiento}`}
                                         download>
                                         Nombramiento
-                                    </Link>
+                                    </a>
                                 </div>
                             </td>
                         </tr>
