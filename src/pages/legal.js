@@ -10,18 +10,12 @@ const legal = () => {
     )
     const datos = data.data
     return (
-        <AppLayout
-            header={
-                <div>
-                  ok
-                </div>
-            }>
+        <AppLayout header={<div>ok</div>}>
             <Head>
                 <title>dashboard</title>
             </Head>
 
             <div className="py-12">
-                
                 <Lista datos={datos} />
             </div>
         </AppLayout>

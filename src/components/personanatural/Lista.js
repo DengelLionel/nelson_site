@@ -1,6 +1,4 @@
 import React, { useEffect, useState } from 'react'
-
-import Link from 'next/link'
 import { saveAs } from 'file-saver'
 import axios from '@/lib/axios'
 
