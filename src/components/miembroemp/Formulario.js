@@ -202,10 +202,26 @@ const Formulario = () => {
 
     return (
         <form onSubmit={handleSubmit} className="mt-8 space-y-6">
-            <input type="hidden " value={pdfruc_preview} />
-            <input type="hidden " value={pdfConstitucionCompañia_preview} />
-            <input type="hidden " value={pdfNombramiento_preview} />
-            <input type="hidden " value={errorServer} />
+            <input
+                style={{ display: 'none' }}
+                type="hidden"
+                value={pdfruc_preview}
+            />
+            <input
+                style={{ display: 'none' }}
+                type="hidden"
+                value={pdfConstitucionCompañia_preview}
+            />
+            <input
+                style={{ display: 'none' }}
+                type="hidden"
+                value={pdfNombramiento_preview}
+            />
+            <input
+                style={{ display: 'none' }}
+                type="hidden"
+                value={errorServer}
+            />
             <div className="rounded-md shadow-sm -space-y-px">
                 <div>
                     <label htmlFor="numero_ruc" className="sr-only">
