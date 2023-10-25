@@ -1,12 +1,11 @@
-import React, { useEffect, useState } from 'react'
+import React, { useState } from 'react'
 import { saveAs } from 'file-saver'
 import axios from '@/lib/axios'
 
 const Lista = ({ datos }) => {
     const [dia, setDia] = useState('')
-    const [errorServer, setErrorServer] = useState(null)
     const handleExport = async () => {
-        try {
+     
             const response = await axios.get(
                 `/api/descargarexcel?date=${dia}`,
                 { responseType: 'blob' },
@@ -15,11 +14,9 @@ const Lista = ({ datos }) => {
                 type: 'application/vnd.ms-excel',
             })
             saveAs(blob, `${dia}-persona_natural.xlsx`)
-        } catch (err) {
-            setErrorServer(err)
-        }
+       
     }
-    useEffect({}, [errorServer])
+
     return (
         <div className="overflow-x-auto">
             <h5 className="mb-4">PERSONA NATURAL</h5>
