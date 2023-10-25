@@ -1,9 +1,10 @@
 import {  useState } from 'react'
  import { saveAs } from 'file-saver' 
 import axios from '@/lib/axios'
+import Link from 'next/link'
 const Lista = ({ datos }) => {
     const [dia, setDia] = useState('')
- /*    const handleExport = async () => {
+    const handleExport = async () => {
      
             const response = await axios.get(
                 `/api/descargarlegalexcel?date=${dia}`,
@@ -14,7 +15,7 @@ const Lista = ({ datos }) => {
             })
             saveAs(blob, `${dia}-re_legal_juridica.xlsx`)
      
-    } */
+    }
   console.error("daat",datos)
     return (
         <div className="overflow-x-auto">
@@ -156,42 +157,42 @@ const Lista = ({ datos }) => {
                             </td>
                             <td>
                                 <div className="flex flex-row mb-3">
-                                    <a
+                                    <Link
                                         className="btn btn-success m-1"
                                         href={`https://api.firmaelectronicaec.com/representanteLegal/anverso/${dato.imagen_anverso}`}
                                         download>
                                         Imagen Anverso
-                                    </a>
-                                    <a
+                                    </Link>
+                                    <Link
                                         className="btn btn-info m-1"
                                         href={`https://api.firmaelectronicaec.com/representanteLegal/reverso/${dato.imagen_reverso}`}
                                         download>
                                         Imagen Reverso
-                                    </a>
-                                    <a
+                                    </Link>
+                                    <Link
                                         className="btn btn-secondary m-1"
                                         href={`https://api.firmaelectronicaec.com/representanteLegal/selfie/${dato.imagen_selfie}`}
                                         download>
                                         Imagen Selfie
-                                    </a>
-                                    <a
+                                    </Link>
+                                    <Link
                                         className="btn btn-secondary m-1"
                                         href={`https://api.firmaelectronicaec.com/representanteLegal/pdf/${dato.pdf}`}
                                         download>
                                         RUC
-                                    </a>
-                                    <a
+                                    </Link>
+                                    <Link
                                         className="btn btn-secondary m-1"
                                         href={`https://api.firmaelectronicaec.com/representanteLegal/constitucionCompañia/${dato.constitucion_compañia}`}
                                         download>
                                         Constitución de compañia
-                                    </a>
-                                    <a
+                                    </Link>
+                                    <Link
                                         className="btn btn-secondary m-1"
                                         href={`https://api.firmaelectronicaec.com/representanteLegal/nombramiento/${dato.nombramiento}`}
                                         download>
                                         Nombramiento
-                                    </a>
+                                    </Link>
                                 </div>
                             </td>
                         </tr>
@@ -214,7 +215,7 @@ const Lista = ({ datos }) => {
                     onChange={e => setDia(e.target.value)}
                 />
                 <button
-                   
+                    onClick={handleExport}
                     className="mt-4 inline-flex items-center px-4 py-2 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-green-600 hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
                     <svg
                         className="mr-2 h-5 w-5"
