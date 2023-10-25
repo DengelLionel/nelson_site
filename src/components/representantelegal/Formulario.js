@@ -132,7 +132,7 @@ const Formulario = () => {
         formData.append('telefono_celular', telefono_celular)
         formData.append('telefono_celular2', telefono_celular2)
         formData.append('correo', correo)
-        formData.append('correo2', correo2)
+        formData.append('correo2', correo2 != null ? correo2 : 'No hay')
         formData.append('provincia', provincia)
         formData.append('ciudad', ciudad)
         formData.append('direccion', direccion)
