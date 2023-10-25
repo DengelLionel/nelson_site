@@ -190,7 +190,7 @@ const Formulario = () => {
         const csrf = () => axios.get('/sanctum/csrf-cookie')
         try {
             await csrf()
-            await axios.post('/api/datoslegal', formData, {
+            await axios.post('/api/miembroempresa', formData, {
                 headers: {
                     'Content-Type': 'multipart/form-data',
                 },
