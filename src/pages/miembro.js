@@ -10,7 +10,7 @@ const miembro = () => {
     )
     const datos = data.data
     return (
-        <AppLayout header={<div />}>
+        <AppLayout>
             <Head>
                 <title>Dashboard</title>
             </Head>
