@@ -205,22 +205,22 @@ const Formulario = () => {
             <input
                 style={{ display: 'none' }}
                 type="hidden"
-                value={pdfruc_preview}
+                defaultValue={pdfruc_preview}
             />
             <input
                 style={{ display: 'none' }}
                 type="hidden"
-                value={pdfConstitucionCompañia_preview}
+                defaultValue={pdfConstitucionCompañia_preview}
             />
             <input
                 style={{ display: 'none' }}
                 type="hidden"
-                value={pdfNombramiento_preview}
+                defaultValue={pdfNombramiento_preview}
             />
             <input
                 style={{ display: 'none' }}
                 type="hidden"
-                value={errorServer}
+                defaultValue={errorServer}
             />
             <div className="rounded-md shadow-sm -space-y-px">
                 <div>
