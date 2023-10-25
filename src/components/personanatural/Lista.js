@@ -5,16 +5,13 @@ import axios from '@/lib/axios'
 const Lista = ({ datos }) => {
     const [dia, setDia] = useState('')
     const handleExport = async () => {
-     
-            const response = await axios.get(
-                `/api/descargarexcel?date=${dia}`,
-                { responseType: 'blob' },
-            )
-            const blob = new Blob([response.data], {
-                type: 'application/vnd.ms-excel',
-            })
-            saveAs(blob, `${dia}-persona_natural.xlsx`)
-       
+        const response = await axios.get(`/api/descargarexcel?date=${dia}`, {
+            responseType: 'blob',
+        })
+        const blob = new Blob([response.data], {
+            type: 'application/vnd.ms-excel',
+        })
+        saveAs(blob, `${dia}-persona_natural.xlsx`)
     }
 
     return (

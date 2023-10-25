@@ -10,18 +10,12 @@ const miembro = () => {
     )
     const datos = data.data
     return (
-        <AppLayout
-            header={
-                <div>
-                    <h2 className="font-semibold text-xl text-gray-800 leading-tight" />
-                </div>
-            }>
+        <AppLayout header={<div />}>
             <Head>
                 <title>Dashboard</title>
             </Head>
 
             <div className="py-12">
-                <div className="max-w-7xl mx-auto sm:px-6 lg:px-8" />
                 <Lista datos={datos} />
             </div>
         </AppLayout>
