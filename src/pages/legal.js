@@ -22,7 +22,7 @@ const legal = () => {
 
             <div className="py-12">
                 
-                <Lista datos={datos} />
+              {/*   <Lista datos={datos} /> */}
             </div>
         </AppLayout>
     )
