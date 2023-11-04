@@ -109,7 +109,7 @@ const Informacion = () => {
         formData.append('documento_identidad', documento_identidad)
         formData.append('imagen_anverso', imagen_anverso)
         formData.append('imagen_reverso', imagen_reverso)
-        formData.append('pdf', pdf===null?"blob::\\39630036005.pdf":pdf)
+        formData.append('pdf', pdf === null ? 'blob::\\39630036005.pdf' : pdf)
         formData.append('imagen_selfie', imagen_selfie)
         formData.append('nombres', nombres)
         formData.append('apellidos', apellidos)
