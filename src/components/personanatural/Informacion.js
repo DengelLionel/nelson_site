@@ -42,9 +42,9 @@ const Informacion = () => {
         correo2,
         setCorreo2,
         provincia,
-
+        setProvincia,
         ciudad,
-
+        setCiudad,
         direccion,
         setDireccion,
         vigencia,
@@ -125,7 +125,7 @@ const Informacion = () => {
         formData.append('ciudad', ciudad)
         formData.append('direccion', direccion)
         formData.append('vigencia', vigencia)
-        setEnviado(false)
+
         const csrf = () => axios.get('/sanctum/csrf-cookie')
         try {
             await csrf()
@@ -135,6 +135,26 @@ const Informacion = () => {
                 },
             })
             setEnviado(true)
+            setDia_creado('')
+            setDocumento_identidad('')
+            setImagen_anverso('')
+            setImagen_reverso('')
+            setPdf('')
+            setImagen_selfie('')
+            setNombres('')
+            setApellidos('')
+            setCon_ruc('')
+            setSexo('')
+            setFecha_nacimiento('')
+            setNacionalidad('')
+            setTelefono_celular('')
+            setTelefono_celular2('')
+            setCorreo('')
+            setCorreo2('')
+            setProvincia('')
+            setCiudad('')
+            setDireccion('')
+            setVigencia('')
         } catch (error) {
             setErrorServer(error)
             setEnviado(false)
