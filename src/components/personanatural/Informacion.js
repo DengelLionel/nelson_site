@@ -155,6 +155,10 @@ const Informacion = () => {
             setCiudad('')
             setDireccion('')
             setVigencia('')
+            setAnverso_preview('')
+            setReverso_preview('')
+            setSelfie_preview('')
+            setPdfPreview('')
         } catch (error) {
             setErrorServer(error)
             setEnviado(false)
