@@ -182,11 +182,7 @@ const Informacion = () => {
                     </label>
                     <select
                         onChange={e => setDocumento_identidad(e.target.value)}
-                        className={`appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm ${
-                            documento_identidad === undefined ||
-                            documento_identidad === null ||
-                            (documento_identidad === '' && 'border-red-500')
-                        }`}
+                        className={`appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm `}
                         name="documento_identidad"
                         id="documento_identidad">
                         <option>Seleccione Identidad</option>
@@ -207,12 +203,7 @@ const Informacion = () => {
                         onChange={e =>
                             setNumero_documento_identidad(e.target.value)
                         }
-                        className={`appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-b-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm ${
-                            numero_documento_identidad === undefined ||
-                            numero_documento_identidad === null ||
-                            (numero_documento_identidad === '' &&
-                                'border-red-500')
-                        }`}
+                        className="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-b-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
                         type="text"
                         placeholder="Número de Documento"
                         name="numero_documento_identidad"
