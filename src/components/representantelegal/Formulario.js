@@ -39,8 +39,10 @@ const Formulario = () => {
         setCorreo,
         correo2,
         setCorreo2,
+        setProvincia,
         provincia,
         ciudad,
+        setCiudad,
         direccion,
         setDireccion,
         vigencia,
@@ -69,6 +71,7 @@ const Formulario = () => {
     const [reverso_preview, setReverso_preview] = useState(null)
     const [selfie_preview, setSelfie_preview] = useState(null)
     const [pdfruc_preview, setPdfruc_preview] = useState(null)
+    const [enviando, setEnviando] = useState(false)
     const [
         pdfConstitucionCompañia_preview,
         setPdfConstitucionCompañia_preview,
@@ -146,8 +149,39 @@ const Formulario = () => {
                     'Content-Type': 'multipart/form-data',
                 },
             })
+            setEnviando(true)
+            setAnverso_preview('')
+            setReverso_preview('')
+            setSelfie_preview('')
+            setPdfruc_preview('')
+            setPdfNombramiento_preview('')
+            setPdfConstitucionCompañia_preview('')
+            setDia_creado('')
+            setDocumento_identidad('')
+            setNumero_ruc('')
+            setRazon_social('')
+            setCargo_representante('')
+            setConstitucion_compañia('')
+            setNombramiento('')
+            setTipo_certificado('')
+            setImagen_anverso('')
+            setImagen_reverso('')
+            setPdf('')
+            setImagen_selfie('')
+            setSexo('')
+            setFecha_nacimiento('')
+            setNacionalidad('')
+            setTelefono_celular('')
+            setTelefono_celular2('')
+            setCorreo('')
+            setCorreo2('')
+            setProvincia('')
+            setCiudad('')
+            setDireccion('')
+            setVigencia('')
         } catch (error) {
             setErrorServer(error)
+            setEnviando(false)
         }
     }
 
@@ -494,7 +528,7 @@ const Formulario = () => {
                     <span className="absolute left-0 inset-y-0 flex items-center pl-3">
                         <i className="fas fa-arrow-right" />
                     </span>
-                    Enviar
+                    {enviando === false ? 'ENVIAR' : 'FUE ENVIADO CON EXITO'}
                 </button>
             </div>
         </form>

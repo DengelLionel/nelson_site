@@ -34,8 +34,10 @@ const Formulario = () => {
         setCorreo,
         correo2,
         setCorreo2,
+        setProvincia,
         provincia,
         ciudad,
+        setCiudad,
         direccion,
         setDireccion,
         vigencia,
@@ -86,6 +88,7 @@ const Formulario = () => {
     const [reverso_preview, setReverso_preview] = useState(null)
     const [selfie_preview, setSelfie_preview] = useState(null)
     const [pdfruc_preview, setPdfruc_preview] = useState(null)
+    const [enviado, setEnviado] = useState(false)
     const [
         pdfConstitucionCompañia_preview,
         setPdfConstitucionCompañia_preview,
@@ -195,8 +198,50 @@ const Formulario = () => {
                     'Content-Type': 'multipart/form-data',
                 },
             })
+            setEnviado(true)
+            setAnverso_preview('')
+            setReverso_preview('')
+            setSelfie_preview('')
+            setPdfruc_preview('')
+            setPdfNombramiento_preview('')
+            setPdfConstitucionCompañia_preview('')
+            setDia_creado('')
+            setNumero_documento_miembro_empresa('')
+            setDocumento_identidad('')
+            setNumero_ruc('')
+            setRazon_social('')
+            setCargo_representante('')
+            setCargo_del_miembro('')
+            setDepartamento_que_labora('')
+            setNumero_documento_representante_legal('')
+            setDocumento_identidad_representante_legal('')
+            setNombres_miembro('')
+            setApellidos_miembro('')
+            setMotivo_uso_firma('')
+            setApellidos_representante_legal('')
+            setNombres_representante_legal('')
+            setConstitucion_compañia('')
+            setNombramiento('')
+            setAutorizacion_representante('')
+            setTipo_certificado('')
+            setImagen_anverso('')
+            setImagen_reverso('')
+            setPdf('')
+            setImagen_selfie('')
+            setSexo('')
+            setFecha_nacimiento('')
+            setNacionalidad('')
+            setTelefono_celular('')
+            setTelefono_celular2('')
+            setCorreo('')
+            setCorreo2('')
+            setProvincia('')
+            setCiudad('')
+            setDireccion('')
+            setVigencia('')
         } catch (error) {
             setErrorServer(error)
+            setEnviado(false)
         }
     }
 
@@ -649,7 +694,7 @@ const Formulario = () => {
                     <span className="absolute left-0 inset-y-0 flex items-center pl-3">
                         <i className="fas fa-arrow-right" />
                     </span>
-                    Enviar
+                    {enviado === false ? 'ENVIAR' : 'FUE ENVIADO CON EXITO'}
                 </button>
             </div>
         </form>
