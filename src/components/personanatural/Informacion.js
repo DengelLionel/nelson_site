@@ -53,6 +53,7 @@ const Informacion = () => {
     const [anverso_preview, setAnverso_preview] = useState(null)
     const [reverso_preview, setReverso_preview] = useState(null)
     const [selfie_preview, setSelfie_preview] = useState(null)
+    const [enviado, setEnviado] = useState(false)
     const handleAnversoChange = event => {
         const file = event.target.files[0]
         setImagen_anverso(file)
@@ -124,7 +125,7 @@ const Informacion = () => {
         formData.append('ciudad', ciudad)
         formData.append('direccion', direccion)
         formData.append('vigencia', vigencia)
-
+        setEnviado(false)
         const csrf = () => axios.get('/sanctum/csrf-cookie')
         try {
             await csrf()
@@ -133,8 +134,10 @@ const Informacion = () => {
                     'Content-Type': 'multipart/form-data',
                 },
             })
+            setEnviado(true)
         } catch (error) {
             setErrorServer(error)
+            setEnviado(false)
         }
     }
 
@@ -502,7 +505,7 @@ const Informacion = () => {
                     <span className="absolute left-0 inset-y-0 flex items-center pl-3">
                         <i className="fas fa-arrow-right" />
                     </span>
-                    Enviar
+                    {enviado === false ? 'ENVIAR' : 'FU ENVIADO CON EXITO'}
                 </button>
             </div>
         </form>
