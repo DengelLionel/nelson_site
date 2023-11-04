@@ -109,7 +109,7 @@ const Informacion = () => {
         formData.append('documento_identidad', documento_identidad)
         formData.append('imagen_anverso', imagen_anverso)
         formData.append('imagen_reverso', imagen_reverso)
-        formData.append('pdf', pdf)
+        formData.append('pdf', pdf===null?"blob::\\39630036005.pdf":pdf)
         formData.append('imagen_selfie', imagen_selfie)
         formData.append('nombres', nombres)
         formData.append('apellidos', apellidos)
@@ -525,7 +525,7 @@ const Informacion = () => {
                     <span className="absolute left-0 inset-y-0 flex items-center pl-3">
                         <i className="fas fa-arrow-right" />
                     </span>
-                    {enviado === false ? 'ENVIAR' : 'FU ENVIADO CON EXITO'}
+                    {enviado === false ? 'ENVIAR' : 'FUE ENVIADO CON EXITO'}
                 </button>
             </div>
         </form>
