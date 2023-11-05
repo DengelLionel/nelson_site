@@ -455,8 +455,8 @@ const Formulario = () => {
                         <option value="3 años">3 años</option>
                         <option value="4 años">4 años</option>
                         <option value="5 años">5 años</option>
-                        <option value="6 años">6 años</option>
-                        <option value="7 años">7 días</option>
+                        <option value="7 días">7 días</option>
+                        <option value="30 días">30 días</option>
                     </select>
                 </div>
             </div>
