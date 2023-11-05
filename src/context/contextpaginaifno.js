@@ -19,7 +19,7 @@ const Contextpaginaifno = ({ children }) => {
     const [con_ruc, setCon_ruc] = useState('')
     const [sexo, setSexo] = useState('')
     const [fecha_nacimiento, setFecha_nacimiento] = useState('')
-    const [nacionalidad, setNacionalidad] = useState('')
+    const [nacionalidad, setNacionalidad] = useState('ECUATORIANA')
     const [telefono_celular, setTelefono_celular] = useState('')
     const [telefono_celular2, setTelefono_celular2] = useState('')
     const [correo, setCorreo] = useState('')
