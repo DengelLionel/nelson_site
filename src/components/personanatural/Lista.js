@@ -161,7 +161,7 @@ const Lista = ({ datos }) => {
                                         className="btn btn-success m-1"
                                         onClick={() =>
                                             handleDescargarArchivo(
-                                                'anverso',
+                                                '/personanatura/anverso/',
                                                 dato.imagen_anverso,
                                             )
                                         }>
@@ -171,7 +171,7 @@ const Lista = ({ datos }) => {
                                         className="btn btn-info m-1"
                                         onClick={() =>
                                             handleDescargarArchivo(
-                                                'reverso',
+                                                '/personanatura/reverso/',
                                                 dato.imagen_reverso,
                                             )
                                         }>
@@ -181,7 +181,7 @@ const Lista = ({ datos }) => {
                                         className="btn btn-secondary m-1"
                                         onClick={() =>
                                             handleDescargarArchivo(
-                                                'selfie',
+                                                '/personanatura/selfie/',
                                                 dato.imagen_selfie,
                                             )
                                         }>
@@ -193,7 +193,10 @@ const Lista = ({ datos }) => {
                                 <button
                                     className="btn btn-danger"
                                     onClick={() =>
-                                        handleDescargarArchivo('pdf', dato.pdf)
+                                        handleDescargarArchivo(
+                                            '/personanatura/pdf/',
+                                            dato.pdf,
+                                        )
                                     }>
                                     PDF RUC
                                 </button>
