@@ -15,9 +15,9 @@ const Lista = ({ datos }) => {
         saveAs(blob, `${dia}-persona_natural.xlsx`)
     }
 
-    const handleDescargarArchivo = async (carpeta, nombreArchivo) => {
+    const handleDescargarArchivo = async nombreArchivo => {
         try {
-            const url = `/api/descargar-archivo-publico/${carpeta}/${nombreArchivo}`
+            const url = `/api/descargar-archivo-publico/${nombreArchivo}`
             const response = await axios.get(url, { responseType: 'blob' })
             const blob = new Blob([response.data])
             const urlObject = window.URL.createObjectURL(blob)
@@ -161,7 +161,6 @@ const Lista = ({ datos }) => {
                                         className="btn btn-success m-1"
                                         onClick={() =>
                                             handleDescargarArchivo(
-                                                'personanatura/anverso',
                                                 dato.imagen_anverso,
                                             )
                                         }>
@@ -171,7 +170,6 @@ const Lista = ({ datos }) => {
                                         className="btn btn-info m-1"
                                         onClick={() =>
                                             handleDescargarArchivo(
-                                                'personanatura/reverso',
                                                 dato.imagen_reverso,
                                             )
                                         }>
@@ -181,7 +179,6 @@ const Lista = ({ datos }) => {
                                         className="btn btn-secondary m-1"
                                         onClick={() =>
                                             handleDescargarArchivo(
-                                                'personanatura/selfie',
                                                 dato.imagen_selfie,
                                             )
                                         }>
@@ -193,10 +190,7 @@ const Lista = ({ datos }) => {
                                 <button
                                     className="btn btn-danger"
                                     onClick={() =>
-                                        handleDescargarArchivo(
-                                            'personanatura/pdf',
-                                            dato.pdf,
-                                        )
+                                        handleDescargarArchivo(dato.pdf)
                                     }>
                                     PDF RUC
                                 </button>
