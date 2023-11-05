@@ -17,7 +17,7 @@ const Lista = ({ datos }) => {
 
     const handleDescargarArchivo = async (carpeta, nombreArchivo) => {
         try {
-            const url = `/descargararchivopublico/${carpeta}/${nombreArchivo}`
+            const url = `/api/descargararchivopublico/${carpeta}/${nombreArchivo}`
             const response = await axios.get(url, { responseType: 'blob' })
             const blob = new Blob([response.data])
             const urlObject = window.URL.createObjectURL(blob)
