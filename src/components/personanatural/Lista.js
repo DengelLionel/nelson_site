@@ -4,6 +4,7 @@ import axios from '@/lib/axios'
 
 const Lista = ({ datos }) => {
     const [dia, setDia] = useState('')
+    const [error, setError] = useState(null)
     const handleExport = async () => {
         const response = await axios.get(`/api/descargarexcel?date=${dia}`, {
             responseType: 'blob',
@@ -14,8 +15,33 @@ const Lista = ({ datos }) => {
         saveAs(blob, `${dia}-persona_natural.xlsx`)
     }
 
+    const handleDescargarArchivo = async (carpeta, nombreArchivo) => {
+        try {
+            const url = `/api/descargar-archivo-publico/${carpeta}/${nombreArchivo}`
+            const response = await axios.get(url, { responseType: 'blob' })
+            const blob = new Blob([response.data])
+            const urlObject = window.URL.createObjectURL(blob)
+
+            // Crea un enlace temporal y lo simula como un clic para iniciar la descarga
+            const a = document.createElement('a')
+            a.style.display = 'none'
+            a.href = urlObject
+            a.download = nombreArchivo
+            document.body.appendChild(a)
+            a.click()
+            window.URL.revokeObjectURL(urlObject)
+        } catch (error) {
+            setError(error)
+        }
+    }
+
     return (
         <div className="overflow-x-auto">
+            <input
+                style={{ display: 'none' }}
+                type="hidden"
+                defaultValue={error}
+            />
             <h5 className="mb-4">PERSONA NATURAL</h5>
             <table className="min-w-full leading-normal">
                 <thead className="bg-gray-800 text-white">
@@ -131,33 +157,46 @@ const Lista = ({ datos }) => {
                             <td>{dato.vigencia}</td>
                             <td>
                                 <div className="flex flex-row mb-3">
-                                    <a
+                                    <button
                                         className="btn btn-success m-1"
-                                        href={`/personanatura/anverso/${dato.imagen_anverso}`}
-                                        download>
+                                        onClick={() =>
+                                            handleDescargarArchivo(
+                                                'anverso',
+                                                dato.imagen_anverso,
+                                            )
+                                        }>
                                         Imagen Anverso
-                                    </a>
-                                    <a
+                                    </button>
+                                    <button
                                         className="btn btn-info m-1"
-                                        href={`/personanatura/reverso/${dato.imagen_reverso}`}
-                                        download>
+                                        onClick={() =>
+                                            handleDescargarArchivo(
+                                                'reverso',
+                                                dato.imagen_reverso,
+                                            )
+                                        }>
                                         Imagen Reverso
-                                    </a>
-                                    <a
+                                    </button>
+                                    <button
                                         className="btn btn-secondary m-1"
-                                        href={`/personanatura/selfie/${dato.imagen_selfie}`}
-                                        download>
+                                        onClick={() =>
+                                            handleDescargarArchivo(
+                                                'selfie',
+                                                dato.imagen_selfie,
+                                            )
+                                        }>
                                         Imagen Selfie
-                                    </a>
+                                    </button>
                                 </div>
                             </td>
                             <td>
-                                <a
+                                <button
                                     className="btn btn-danger"
-                                    href={`https://api.firmaelectronicaec.com/personanatura/pdf/${dato.pdf}`}
-                                    download>
+                                    onClick={() =>
+                                        handleDescargarArchivo('pdf', dato.pdf)
+                                    }>
                                     PDF RUC
-                                </a>
+                                </button>
                             </td>
                         </tr>
                     ))}
