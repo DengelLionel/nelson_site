@@ -161,7 +161,7 @@ const Lista = ({ datos }) => {
                                         className="btn btn-success m-1"
                                         onClick={() =>
                                             handleDescargarArchivo(
-                                                '/personanatura/anverso/',
+                                                'personanatura/anverso',
                                                 dato.imagen_anverso,
                                             )
                                         }>
@@ -171,7 +171,7 @@ const Lista = ({ datos }) => {
                                         className="btn btn-info m-1"
                                         onClick={() =>
                                             handleDescargarArchivo(
-                                                '/personanatura/reverso/',
+                                                'personanatura/reverso',
                                                 dato.imagen_reverso,
                                             )
                                         }>
@@ -181,7 +181,7 @@ const Lista = ({ datos }) => {
                                         className="btn btn-secondary m-1"
                                         onClick={() =>
                                             handleDescargarArchivo(
-                                                '/personanatura/selfie/',
+                                                'personanatura/selfie',
                                                 dato.imagen_selfie,
                                             )
                                         }>
@@ -194,7 +194,7 @@ const Lista = ({ datos }) => {
                                     className="btn btn-danger"
                                     onClick={() =>
                                         handleDescargarArchivo(
-                                            '/personanatura/pdf/',
+                                            'personanatura/pdf',
                                             dato.pdf,
                                         )
                                     }>
