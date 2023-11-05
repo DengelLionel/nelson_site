@@ -133,19 +133,19 @@ const Lista = ({ datos }) => {
                                 <div className="flex flex-row mb-3">
                                     <a
                                         className="btn btn-success m-1"
-                                        href={`https://api.firmaelectronicaec.com/personanatura/anverso/${dato.imagen_anverso}`}
+                                        href={`/personanatura/anverso/${dato.imagen_anverso}`}
                                         download>
                                         Imagen Anverso
                                     </a>
                                     <a
                                         className="btn btn-info m-1"
-                                        href={`https://api.firmaelectronicaec.com/personanatura/reverso/${dato.imagen_reverso}`}
+                                        href={`/personanatura/reverso/${dato.imagen_reverso}`}
                                         download>
                                         Imagen Reverso
                                     </a>
                                     <a
                                         className="btn btn-secondary m-1"
-                                        href={`https://api.firmaelectronicaec.com/personanatura/selfie/${dato.imagen_selfie}`}
+                                        href={`/personanatura/selfie/${dato.imagen_selfie}`}
                                         download>
                                         Imagen Selfie
                                     </a>
