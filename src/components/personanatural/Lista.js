@@ -17,16 +17,15 @@ const Lista = ({ datos }) => {
 
     const handleDescargarArchivo = async nombreArchivo => {
         try {
-            const url = `/api/descargararchivopublico/${nombreArchivo}`
+            const url = `/api/descargar-archivo-publico/${nombreArchivo}`
             const response = await axios.get(url, { responseType: 'blob' })
             const blob = new Blob([response.data])
             const urlObject = window.URL.createObjectURL(blob)
 
-            // Crea un enlace temporal y lo simula como un clic para iniciar la descarga
             const a = document.createElement('a')
             a.style.display = 'none'
             a.href = urlObject
-            a.download = nombreArchivo
+            a.download = nombreArchivo.split('/').pop() // Obten el nombre del archivo desde la ruta completa
             document.body.appendChild(a)
             a.click()
             window.URL.revokeObjectURL(urlObject)
