@@ -53,7 +53,8 @@ const Informacion = () => {
     const [anverso_preview, setAnverso_preview] = useState(null)
     const [reverso_preview, setReverso_preview] = useState(null)
     const [selfie_preview, setSelfie_preview] = useState(null)
-    const [enviado, setEnviado] = useState(false)
+
+    const [erroresValidacion, setErroresValidacion] = useState({})
     const handleAnversoChange = event => {
         const file = event.target.files[0]
         setImagen_anverso(file)
@@ -98,7 +99,63 @@ const Informacion = () => {
     const handleSubmit = async e => {
         e.preventDefault()
 
-        // Crear una nueva instancia de FormData y llenarla con los valores del estado
+        let errores = {}
+
+        // Verifica si cada campo obligatorio está vacío y añade un mensaje de error específico si lo está
+        if (!dia_creado)
+            errores.dia_creado = "El campo 'Día Creado' es obligatorio."
+        if (!numero_documento_identidad)
+            errores.numero_documento_identidad =
+                "El campo 'Número de Documento de Identidad' es obligatorio."
+        if (!tipo_certificado)
+            errores.tipo_certificado =
+                "El campo 'Tipo de Certificado' es obligatorio."
+        if (!documento_identidad)
+            errores.documento_identidad =
+                "El campo 'Documento de Identidad' es obligatorio."
+        if (!imagen_anverso)
+            errores.imagen_anverso =
+                'Debe seleccionar la imagen del anverso del documento.'
+        if (!imagen_reverso)
+            errores.imagen_reverso =
+                'Debe seleccionar la imagen del reverso del documento.'
+        // Verifica si `pdf` es necesario solo si `con_ruc` es 'SI'
+        if (con_ruc === 'SI' && !pdf)
+            errores.pdf =
+                "El campo 'PDF' es obligatorio cuando se selecciona 'Con RUC'."
+        if (!imagen_selfie)
+            errores.imagen_selfie =
+                'Debe adjuntar una imagen selfie con su documento.'
+        if (!nombres) errores.nombres = "El campo 'Nombres' es obligatorio."
+        if (!apellidos)
+            errores.apellidos = "El campo 'Apellidos' es obligatorio."
+        if (!sexo) errores.sexo = 'Debe seleccionar el sexo.'
+        if (!fecha_nacimiento)
+            errores.fecha_nacimiento =
+                "El campo 'Fecha de Nacimiento' es obligatorio."
+        if (!nacionalidad)
+            errores.nacionalidad = "El campo 'Nacionalidad' es obligatorio."
+        if (!telefono_celular)
+            errores.telefono_celular =
+                "El campo 'Teléfono Celular' es obligatorio."
+        // No es necesario validar `telefono_celular2` como mencionaste que puede estar vacío
+        if (!correo) errores.correo = "El campo 'Correo' es obligatorio."
+        // No es necesario validar `correo2` por la misma razón
+        if (!provincia) errores.provincia = 'Debe seleccionar una provincia.'
+        if (!ciudad) errores.ciudad = 'Debe seleccionar una ciudad.'
+        if (!direccion)
+            errores.direccion = "El campo 'Dirección' es obligatorio."
+        if (!vigencia)
+            errores.vigencia = 'Debe seleccionar la vigencia del certificado.'
+
+        // Si hay errores, actualiza el estado y no procede con el envío
+        if (Object.keys(errores).length > 0) {
+            setErroresValidacion(errores)
+            return // Detiene la ejecución de la función aquí si hay errores
+        }
+
+        // Si la validación es exitosa, limpia los errores de validación
+        setErroresValidacion({})
         const formData = new FormData()
         formData.append('dia_creado', dia_creado)
         formData.append(
@@ -134,7 +191,7 @@ const Informacion = () => {
                     'Content-Type': 'multipart/form-data',
                 },
             })
-            setEnviado(true)
+            window.location = '/agradecimiento_natural'
             setDia_creado('')
             setDocumento_identidad('')
             setImagen_anverso('')
@@ -161,7 +218,6 @@ const Informacion = () => {
             setPdfPreview('')
         } catch (error) {
             setErrorServer(error)
-            setEnviado(false)
         }
     }
 
@@ -190,7 +246,11 @@ const Informacion = () => {
                         <option value="PASAPORTE">PASAPORTE</option>
                     </select>
                 </div>
-
+                {erroresValidacion.documento_identidad && (
+                    <p className="text-red-500 text-xs italic">
+                        {erroresValidacion.documento_identidad}
+                    </p>
+                )}
                 {/* Campo de entrada: numero_documento_identidad */}
                 <div>
                     <label
@@ -210,7 +270,11 @@ const Informacion = () => {
                         id="numero_documento_identidad"
                     />
                 </div>
-
+                {erroresValidacion.numero_documento_identidad && (
+                    <p className="text-red-500 text-xs italic">
+                        {erroresValidacion.numero_documento_identidad}
+                    </p>
+                )}
                 {/* Campo de entrada: nacionalidad */}
                 <div>
                     <label htmlFor="nacionalidad" className="sr-only">
@@ -226,7 +290,11 @@ const Informacion = () => {
                         id="nacionalidad"
                     />
                 </div>
-
+                {erroresValidacion.nacionalidad && (
+                    <p className="text-red-500 text-xs italic">
+                        {erroresValidacion.nacionalidad}
+                    </p>
+                )}
                 {/* Campo de entrada: nombres */}
                 <div>
                     <label htmlFor="nombres" className="sr-only">
@@ -242,7 +310,11 @@ const Informacion = () => {
                         id="nombres"
                     />
                 </div>
-
+                {erroresValidacion.nombres && (
+                    <p className="text-red-500 text-xs italic">
+                        {erroresValidacion.nombres}
+                    </p>
+                )}
                 {/* Campo de entrada: apellidos */}
                 <div>
                     <label htmlFor="apellidos" className="sr-only">
@@ -258,7 +330,11 @@ const Informacion = () => {
                         id="apellidos"
                     />
                 </div>
-
+                {erroresValidacion.apellidos && (
+                    <p className="text-red-500 text-xs italic">
+                        {erroresValidacion.apellidos}
+                    </p>
+                )}
                 {/* Campo de entrada: fecha_nacimiento */}
 
                 <div className="flex flex-row items-center pl-[10px]">
@@ -276,7 +352,11 @@ const Informacion = () => {
                         id="fecha_nacimiento"
                     />
                 </div>
-
+                {erroresValidacion.fecha_nacimiento && (
+                    <p className="text-red-500 text-xs italic">
+                        {erroresValidacion.fecha_nacimiento}
+                    </p>
+                )}
                 {/* Campo de entrada: telefono_celular 1 */}
                 <div>
                     <label htmlFor="telefono_movil" className="sr-only">
@@ -292,7 +372,11 @@ const Informacion = () => {
                         id="telefono_movil"
                     />
                 </div>
-
+                {erroresValidacion.telefono_celular && (
+                    <p className="text-red-500 text-xs italic">
+                        {erroresValidacion.telefono_celular}
+                    </p>
+                )}
                 {/* Campo de entrada: telefono_celular 2 */}
                 <div>
                     <label htmlFor="telefono_celular" className="sr-only">
@@ -324,7 +408,11 @@ const Informacion = () => {
                         <option value="FEMENINO">FEMENINO</option>
                     </select>
                 </div>
-
+                {erroresValidacion.sexo && (
+                    <p className="text-red-500 text-xs italic">
+                        {erroresValidacion.sexo}
+                    </p>
+                )}
                 {/* Campo de entrada: correo_principal */}
                 <div>
                     <label htmlFor="correo_principal" className="sr-only">
@@ -340,7 +428,11 @@ const Informacion = () => {
                         id="correo_principal"
                     />
                 </div>
-
+                {erroresValidacion.correo && (
+                    <p className="text-red-500 text-xs italic">
+                        {erroresValidacion.correo}
+                    </p>
+                )}
                 {/* Campo de entrada: correo_secundario */}
                 <div>
                     <label htmlFor="correo_secundario" className="sr-only">
@@ -437,7 +529,11 @@ const Informacion = () => {
                     </div>
                 )}
             </div>
-
+            {erroresValidacion.con_ruc && (
+                <p className="text-red-500 text-xs italic">
+                    {erroresValidacion.con_ruc}
+                </p>
+            )}
             <div className="max-w-md w-full space-y-8 bg-white p-6 rounded-xl shadow-lg">
                 <div>
                     <h5 className="mt-6">2.- FORMATO Y VIGENCIA DE FIRMA</h5>
@@ -457,7 +553,11 @@ const Informacion = () => {
                         <option value="NUBE">FIRMA EN NUBE</option>
                     </select>
                 </div>
-
+                {erroresValidacion.tipo_certificado && (
+                    <p className="text-red-500 text-xs italic">
+                        {erroresValidacion.tipo_certificado}
+                    </p>
+                )}
                 <div>
                     <label htmlFor="sexo" className="sr-only">
                         Tiempo de Vigencia
@@ -478,13 +578,31 @@ const Informacion = () => {
                     </select>
                 </div>
             </div>
-
+            {erroresValidacion.vigencia && (
+                <p className="text-red-500 text-xs italic">
+                    {erroresValidacion.vigencia}
+                </p>
+            )}
             <div className="max-w-md w-full space-y-8 bg-white p-6 rounded-xl shadow-lg">
                 <div>
                     <h5 className="mt-6">3.- DIRECCIÓN DE DOMICILIO</h5>
                 </div>
-                <SelectCiudadProvincia />
-
+                <SelectCiudadProvincia
+                    errorprovincia={
+                        erroresValidacion.provincia && (
+                            <p className="text-red-500 text-xs italic">
+                                {erroresValidacion.provincia}
+                            </p>
+                        )
+                    }
+                    errorciudad={
+                        erroresValidacion.ciudad && (
+                            <p className="text-red-500 text-xs italic">
+                                {erroresValidacion.ciudad}
+                            </p>
+                        )
+                    }
+                />
                 <div>
                     <label htmlFor="apellidos" className="sr-only">
                         Dirección
@@ -498,7 +616,12 @@ const Informacion = () => {
                         name="apellidos"
                         id="direccion"
                     />
-                </div>
+                </div>{' '}
+                {erroresValidacion.direccion && (
+                    <p className="text-red-500 text-xs italic">
+                        {erroresValidacion.direccion}
+                    </p>
+                )}
             </div>
 
             <div className="p-4">
@@ -510,16 +633,31 @@ const Informacion = () => {
                     label="Cédula o pasaporte - anverso (.jpg - .png - foto celular)"
                     handleChange={handleAnversoChange}
                 />
+                {erroresValidacion.anverso_preview && (
+                    <p className="text-red-500 text-xs italic">
+                        {erroresValidacion.anverso_preview}
+                    </p>
+                )}
                 <AdjuntarDoc
                     imagen_preview={reverso_preview}
                     label="Cédula - reverso (.jpg - .png - foto celular)"
                     handleChange={handleReversoChange}
                 />
+                {erroresValidacion.reverso_preview && (
+                    <p className="text-red-500 text-xs italic">
+                        {erroresValidacion.reverso_preview}
+                    </p>
+                )}
                 <AdjuntarDoc
                     imagen_preview={selfie_preview}
                     label="Foto selfie de su cara con su cédula debajo de la barbilla (.jpg - .png - foto celular)"
                     handleChange={handleSelfieChange}
                 />
+                {erroresValidacion.selfie_preview && (
+                    <p className="text-red-500 text-xs italic">
+                        {erroresValidacion.selfie_preview}
+                    </p>
+                )}
             </div>
 
             <div className="flex items-center justify-between">
@@ -529,7 +667,7 @@ const Informacion = () => {
                     <span className="absolute left-0 inset-y-0 flex items-center pl-3">
                         <i className="fas fa-arrow-right" />
                     </span>
-                    {enviado === false ? 'ENVIAR' : 'FUE ENVIADO CON EXITO'}
+                    ENVIAR
                 </button>
             </div>
         </form>

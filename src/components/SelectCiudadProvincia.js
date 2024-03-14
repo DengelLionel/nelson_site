@@ -325,7 +325,7 @@ const dataApi = [
 
     // Más regiones aquí...
 ]
-const SelectCiudadProvincia = () => {
+const SelectCiudadProvincia = ({ errorciudad, errorprovincia }) => {
     const { provincia, setProvincia, setCiudad } = useContext(
         PaginaContextValue,
     )
@@ -361,7 +361,7 @@ const SelectCiudadProvincia = () => {
                     ))}
                 </select>
             </div>
-
+            {errorprovincia}
             <div>
                 <label htmlFor="ciudad" className="sr-only">
                     Ciudad
@@ -381,6 +381,7 @@ const SelectCiudadProvincia = () => {
                     ))}
                 </select>
             </div>
+            {errorciudad}
         </div>
     )
 }
