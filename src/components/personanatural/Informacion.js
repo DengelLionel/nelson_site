@@ -173,8 +173,8 @@ const Informacion = () => {
                 {/* Cada div representa un campo de entrada */}
 
                 {/* Campo de entrada: documento_identidad */}
-                <input value={pdfPreview} type="hidden" />
-                <input value={errorServer} type="hidden" />
+                <input value={pdfPreview || ''} type="hidden" />
+                <input value={errorServer || ''} type="hidden" />
                 <div>
                     <input value={dia_creado} type="hidden" id="dia_creado" />
                     <label htmlFor="documento_identidad" className="sr-only">
@@ -199,7 +199,7 @@ const Informacion = () => {
                         Número de Documento
                     </label>
                     <input
-                        value={numero_documento_identidad}
+                        value={numero_documento_identidad || ''}
                         onChange={e =>
                             setNumero_documento_identidad(e.target.value)
                         }
@@ -217,7 +217,7 @@ const Informacion = () => {
                         Nacionalidad
                     </label>
                     <input
-                        value={nacionalidad}
+                        value={nacionalidad || ''}
                         onChange={e => setNacionalidad(e.target.value)}
                         className="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-b-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
                         type="text"
@@ -233,7 +233,7 @@ const Informacion = () => {
                         Nombres
                     </label>
                     <input
-                        value={nombres}
+                        value={nombres || ''}
                         onChange={e => setNombres(e.target.value)}
                         className="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-b-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
                         type="text"
@@ -249,7 +249,7 @@ const Informacion = () => {
                         Apellidos
                     </label>
                     <input
-                        value={apellidos}
+                        value={apellidos || ''}
                         onChange={e => setApellidos(e.target.value)}
                         className="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-b-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
                         type="text"
@@ -283,7 +283,7 @@ const Informacion = () => {
                         Teléfono Móvil
                     </label>
                     <input
-                        value={telefono_celular}
+                        value={telefono_celular || ''}
                         onChange={e => setTelefono_celular(e.target.value)}
                         className="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-b-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
                         type="tel"
@@ -299,7 +299,7 @@ const Informacion = () => {
                         Teléfono Fijo
                     </label>
                     <input
-                        value={telefono_celular2}
+                        value={telefono_celular2 || ''}
                         onChange={e => setTelefono_celular2(e.target.value)}
                         className="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-b-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
                         type="tel"
@@ -331,7 +331,7 @@ const Informacion = () => {
                         Correo{' '}
                     </label>
                     <input
-                        value={correo}
+                        value={correo || ''}
                         onChange={e => setCorreo(e.target.value)}
                         className="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-b-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
                         type="email"
@@ -347,7 +347,7 @@ const Informacion = () => {
                         Correo 2
                     </label>
                     <input
-                        value={correo2}
+                        value={correo2 || ''}
                         onChange={e => setCorreo2(e.target.value)}
                         className="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-b-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
                         type="email"
@@ -490,7 +490,7 @@ const Informacion = () => {
                         Dirección
                     </label>
                     <input
-                        value={direccion}
+                        value={direccion || ''}
                         onChange={e => setDireccion(e.target.value)}
                         className="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-b-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
                         type="text"

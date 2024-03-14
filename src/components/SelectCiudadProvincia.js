@@ -351,9 +351,11 @@ const SelectCiudadProvincia = () => {
                     className="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
                     name="provincia"
                     id="provincia">
-                    <option value="">Seleccione Provincia</option>
-                    {dataApi.map(provincia => (
-                        <option key={provincia} value={provincia.provincia}>
+                    <option defaultValue="Seleccione Provincia">
+                        Seleccione Provincia
+                    </option>
+                    {dataApi.map((provincia, index) => (
+                        <option key={index} value={provincia.provincia}>
                             {provincia.provincia}
                         </option>
                     ))}
@@ -369,7 +371,9 @@ const SelectCiudadProvincia = () => {
                     className="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
                     name="ciudad"
                     id="ciudad">
-                    <option value="">Seleccione ciudad</option>
+                    <option defaultValue="Seleccione ciudad">
+                        Seleccione ciudad
+                    </option>
                     {ciudades?.[0]?.ciudad.map((ciudad, index) => (
                         <option key={index} value={ciudad}>
                             {ciudad}

@@ -1,10 +1,10 @@
 import React, { useState } from 'react'
 import { saveAs } from 'file-saver'
 import axios from '@/lib/axios'
-
+import { handleDescargarArchivo } from '@/lib/descargararchivo'
 const Lista = ({ datos }) => {
     const [dia, setDia] = useState('')
-    const [error, setError] = useState(null)
+
     const handleExport = async () => {
         const response = await axios.get(`/api/descargarexcel?date=${dia}`, {
             responseType: 'blob',
@@ -15,32 +15,8 @@ const Lista = ({ datos }) => {
         saveAs(blob, `${dia}-persona_natural.xlsx`)
     }
 
-    const handleDescargarArchivo = async (carpeta, nombreArchivo) => {
-        try {
-            const url = `/api/descargararchivopublico/${carpeta}/${nombreArchivo}`
-            const response = await axios.get(url, { responseType: 'blob' })
-            const blob = new Blob([response.data])
-            const urlObject = window.URL.createObjectURL(blob)
-
-            // Crea un enlace temporal y lo simula como un clic para iniciar la descarga
-            const a = document.createElement('a')
-            a.style.display = 'none'
-            a.href = urlObject
-            a.download = nombreArchivo
-            document.body.appendChild(a)
-            a.click()
-            window.URL.revokeObjectURL(urlObject)
-        } catch (error) {
-            setError(error)
-        }
-    }
     return (
         <div className="overflow-x-auto">
-            <input
-                style={{ display: 'none' }}
-                type="hidden"
-                defaultValue={error}
-            />
             <h5 className="mb-4">PERSONA NATURAL</h5>
             <table className="min-w-full leading-normal">
                 <thead className="bg-gray-800 text-white">
