@@ -66,6 +66,7 @@ const Formulario = () => {
 
         setDia_creado(ano + '-' + mes + '-' + dia)
     }, [])
+    const [erroresValidacion, setErroresValidacion] = useState({})
 
     const [anverso_preview, setAnverso_preview] = useState(null)
     const [reverso_preview, setReverso_preview] = useState(null)
@@ -111,7 +112,74 @@ const Formulario = () => {
 
     const handleSubmit = async e => {
         e.preventDefault()
+        let errores = {}
 
+        // Validaciones existentes...
+        if (!numero_ruc)
+            errores.numero_ruc = "El campo 'Número de RUC' es obligatorio."
+        if (!razon_social)
+            errores.razon_social = "El campo 'Razón Social' es obligatorio."
+
+        // Continuación de las validaciones
+        if (!cargo_representante)
+            errores.cargo_representante =
+                "El campo 'Cargo del Representante' es obligatorio."
+        if (!documento_identidad)
+            errores.documento_identidad =
+                "Debe seleccionar un 'Tipo de Documento'."
+        if (!numero_documento_identidad)
+            errores.numero_documento_identidad =
+                "El campo 'Número de Documento' es obligatorio."
+        if (!nacionalidad)
+            errores.nacionalidad = "El campo 'Nacionalidad' es obligatorio."
+        if (!nombres) errores.nombres = "El campo 'Nombres' es obligatorio."
+        if (!apellidos)
+            errores.apellidos = "El campo 'Apellidos' es obligatorio."
+        if (!fecha_nacimiento)
+            errores.fecha_nacimiento =
+                "El campo 'Fecha de Nacimiento' es obligatorio."
+        if (!sexo) errores.sexo = "Debe seleccionar el 'Sexo'."
+        if (!telefono_celular)
+            errores.telefono_celular =
+                "El campo 'Teléfono Celular 1' es obligatorio."
+        // Correo es obligatorio, correo2 es opcional
+        if (!correo) errores.correo = "El campo 'Correo' es obligatorio."
+        if (!tipo_certificado)
+            errores.tipo_certificado =
+                "Debe seleccionar un 'Tipo de Certificado'."
+        if (!vigencia)
+            errores.vigencia = "Debe seleccionar la 'Vigencia' del certificado."
+        if (!provincia) errores.provincia = "Debe seleccionar una 'Provincia'."
+        if (!ciudad) errores.ciudad = "Debe seleccionar una 'Ciudad'."
+        if (!direccion)
+            errores.direccion = "El campo 'Dirección' es obligatorio."
+
+        // Verifica si hay archivos adjuntos obligatorios
+        if (!imagen_anverso)
+            errores.imagen_anverso =
+                'Debe adjuntar la imagen del anverso del documento.'
+        if (!imagen_reverso)
+            errores.imagen_reverso =
+                'Debe adjuntar la imagen del reverso del documento.'
+        if (!pdf)
+            errores.pdf = 'Debe adjuntar el RUC de la empresa en formato PDF.'
+        if (!imagen_selfie)
+            errores.imagen_selfie =
+                'Debe adjuntar una selfie con el documento de identidad.'
+        if (!constitucion_compañia)
+            errores.constitucion_compañia =
+                'Debe adjuntar el documento de constitución de la compañía.'
+        if (!nombramiento)
+            errores.nombramiento =
+                'Debe adjuntar el documento de nombramiento del representante legal.'
+
+        // Si hay errores, actualiza el estado y no procede con el envío
+        if (Object.keys(errores).length > 0) {
+            setErroresValidacion(errores)
+            return // Detiene la ejecución si hay errores
+        }
+
+        setErroresValidacion({})
         // Crear una nueva instancia de FormData y llenarla con los valores del estado
         const formData = new FormData()
         formData.append('dia_creado', dia_creado)
@@ -150,6 +218,7 @@ const Formulario = () => {
                 },
             })
             setEnviando(true)
+            window.location = '/agradecimiento_representante'
             setAnverso_preview('')
             setReverso_preview('')
             setSelfie_preview('')
@@ -206,7 +275,11 @@ const Formulario = () => {
                         id="numero_ruc"
                     />
                 </div>
-
+                {erroresValidacion.numero_ruc && (
+                    <p className="text-red-500 text-xs italic">
+                        {erroresValidacion.numero_ruc}
+                    </p>
+                )}
                 <div>
                     <label htmlFor="razon_social" className="sr-only">
                         Razón Social{' '}
@@ -221,7 +294,11 @@ const Formulario = () => {
                         id="razon_social"
                     />
                 </div>
-
+                {erroresValidacion.razon_social && (
+                    <p className="text-red-500 text-xs italic">
+                        {erroresValidacion.razon_social}
+                    </p>
+                )}
                 <div>
                     <label htmlFor="cargo_representante" className="sr-only">
                         Cargo del Represente{' '}
@@ -236,7 +313,11 @@ const Formulario = () => {
                         id="cargo_representante"
                     />
                 </div>
-
+                {erroresValidacion.cargo_representante && (
+                    <p className="text-red-500 text-xs italic">
+                        {erroresValidacion.cargo_representante}
+                    </p>
+                )}
                 <h5 className="mt-6">2.- INFORMACIÓN DEL REPRESENTATE LEGAL</h5>
                 <div>
                     <input value={dia_creado} type="hidden" id="dia_creado" />
@@ -253,7 +334,11 @@ const Formulario = () => {
                         <option value="PASAPORTE">PASAPORTE</option>
                     </select>
                 </div>
-
+                {erroresValidacion.documento_identidad && (
+                    <p className="text-red-500 text-xs italic">
+                        {erroresValidacion.documento_identidad}
+                    </p>
+                )}
                 {/* Campo de entrada: numero_documento_identidad */}
                 <div>
                     <label
@@ -273,7 +358,11 @@ const Formulario = () => {
                         id="numero_documento_identidad"
                     />
                 </div>
-
+                {erroresValidacion.numero_documento_identidad && (
+                    <p className="text-red-500 text-xs italic">
+                        {erroresValidacion.numero_documento_identidad}
+                    </p>
+                )}
                 {/* Campo de entrada: nacionalidad */}
                 <div>
                     <label htmlFor="nacionalidad" className="sr-only">
@@ -289,7 +378,11 @@ const Formulario = () => {
                         id="nacionalidad"
                     />
                 </div>
-
+                {erroresValidacion.nacionalidad && (
+                    <p className="text-red-500 text-xs italic">
+                        {erroresValidacion.nacionalidad}
+                    </p>
+                )}
                 {/* Campo de entrada: nombres */}
                 <div>
                     <label htmlFor="nombres" className="sr-only">
@@ -305,7 +398,11 @@ const Formulario = () => {
                         id="nombres"
                     />
                 </div>
-
+                {erroresValidacion.nombres && (
+                    <p className="text-red-500 text-xs italic">
+                        {erroresValidacion.nombres}
+                    </p>
+                )}
                 {/* Campo de entrada: apellidos */}
                 <div>
                     <label htmlFor="apellidos" className="sr-only">
@@ -321,7 +418,11 @@ const Formulario = () => {
                         id="apellidos"
                     />
                 </div>
-
+                {erroresValidacion.apellidos && (
+                    <p className="text-red-500 text-xs italic">
+                        {erroresValidacion.apellidos}
+                    </p>
+                )}
                 {/* Campo de entrada: fecha_nacimiento */}
 
                 <div className="flex flex-row items-center pl-[10px]">
@@ -339,7 +440,11 @@ const Formulario = () => {
                         id="fecha_nacimiento"
                     />
                 </div>
-
+                {erroresValidacion.fecha_nacimiento && (
+                    <p className="text-red-500 text-xs italic">
+                        {erroresValidacion.fecha_nacimiento}
+                    </p>
+                )}
                 {/* Campo de entrada: telefono_celular 1 */}
                 <div>
                     <label htmlFor="telefono_movil" className="sr-only">
@@ -355,7 +460,11 @@ const Formulario = () => {
                         id="telefono_movil"
                     />
                 </div>
-
+                {erroresValidacion.telefono_celular && (
+                    <p className="text-red-500 text-xs italic">
+                        {erroresValidacion.telefono_celular}
+                    </p>
+                )}
                 {/* Campo de entrada: telefono_celular 2 */}
                 <div>
                     <label htmlFor="telefono_celular" className="sr-only">
@@ -371,7 +480,6 @@ const Formulario = () => {
                         id="telefono_fijo"
                     />
                 </div>
-
                 {/* Campo de entrada: sexo */}
                 <div>
                     <label htmlFor="sexo" className="sr-only">
@@ -387,6 +495,11 @@ const Formulario = () => {
                         <option value="FEMENINO">FEMENINO</option>
                     </select>
                 </div>
+                {erroresValidacion.sexo && (
+                    <p className="text-red-500 text-xs italic">
+                        {erroresValidacion.sexo}
+                    </p>
+                )}
 
                 {/* Campo de entrada: correo_principal */}
                 <div>
@@ -403,6 +516,12 @@ const Formulario = () => {
                         id="correo_principal"
                     />
                 </div>
+                {erroresValidacion.correo && (
+                    <p className="text-red-500 text-xs italic">
+                        {erroresValidacion.correo}
+                    </p>
+                )}
+
                 {/* Campo de entrada: correo_secundario */}
                 <div>
                     <label htmlFor="correo_secundario" className="sr-only">
@@ -439,6 +558,11 @@ const Formulario = () => {
                         <option value="NUBE">FIRMA EN NUBE</option>
                     </select>
                 </div>
+                {erroresValidacion.tipo_certificado && (
+                    <p className="text-red-500 text-xs italic">
+                        {erroresValidacion.tipo_certificado}
+                    </p>
+                )}
 
                 <div>
                     <label htmlFor="vigencia" className="sr-only">
@@ -459,6 +583,11 @@ const Formulario = () => {
                         <option value="30 días">30 días</option>
                     </select>
                 </div>
+                {erroresValidacion.vigencia && (
+                    <p className="text-red-500 text-xs italic">
+                        {erroresValidacion.vigencia}
+                    </p>
+                )}
             </div>
 
             <div className="max-w-md w-full space-y-8 bg-white p-6 rounded-xl shadow-lg">
@@ -467,7 +596,22 @@ const Formulario = () => {
                         4.- DIRECCIÓN COMO CONSTA EN EL RUC DE CIA
                     </h5>
                 </div>
-                <SelectCiudadProvincia />
+                <SelectCiudadProvincia
+                    errorciudad={
+                        erroresValidacion.ciudad && (
+                            <p className="text-red-500 text-xs italic">
+                                {erroresValidacion.ciudad}
+                            </p>
+                        )
+                    }
+                    errorprovincia={
+                        erroresValidacion.provincia && (
+                            <p className="text-red-500 text-xs italic">
+                                {erroresValidacion.provincia}
+                            </p>
+                        )
+                    }
+                />
 
                 <div>
                     <label htmlFor="apellidos" className="sr-only">
@@ -483,6 +627,11 @@ const Formulario = () => {
                         id="direccion"
                     />
                 </div>
+                {erroresValidacion.direccion && (
+                    <p className="text-red-500 text-xs italic">
+                        {erroresValidacion.direccion}
+                    </p>
+                )}
             </div>
 
             <div className="p-4">
@@ -494,31 +643,61 @@ const Formulario = () => {
                     label="1.-Cédula o pasaporte - anverso (.jpg - .png - foto celular (2Mb)) Representante Legal "
                     handleChange={handleAnversoChange}
                 />
+                {erroresValidacion.imagen_anverso && (
+                    <p className="text-red-500 text-xs italic">
+                        {erroresValidacion.imagen_anverso}
+                    </p>
+                )}
                 <AdjuntarDoc
                     imagen_preview={reverso_preview}
                     label="2.- Cédula - reverso (.jpg - .png - foto celular (2Mb)) Representante Legal"
                     handleChange={handleReversoChange}
                 />
+                {erroresValidacion.imagen_reverso && (
+                    <p className="text-red-500 text-xs italic">
+                        {erroresValidacion.imagen_reverso}
+                    </p>
+                )}
                 <AdjuntarDoc
                     pdf_preview={pdf}
                     label="3.- RUC (.pdf) Empresa"
                     handleChange={handlePdfRucChange}
                 />
+                {erroresValidacion.pdf && (
+                    <p className="text-red-500 text-xs italic">
+                        {erroresValidacion.pdf}
+                    </p>
+                )}
                 <AdjuntarDoc
                     imagen_preview={selfie_preview}
                     label="4.-  Foto selfie de su cara con su cédula debajo de la barbilla (.jpg - .png - foto celular)"
                     handleChange={handleSelfieChange}
                 />
+                {erroresValidacion.imagen_selfie && (
+                    <p className="text-red-500 text-xs italic">
+                        {erroresValidacion.imagen_selfie}
+                    </p>
+                )}
                 <AdjuntarDoc
                     pdf_preview={constitucion_compañia}
                     label="5.- constitucion de compañía (.pdf) - Empresa"
                     handleChange={handlePdfConstitucionCompañiaChange}
                 />
+                {erroresValidacion.constitucion_compañia && (
+                    <p className="text-red-500 text-xs italic">
+                        {erroresValidacion.constitucion_compañia}
+                    </p>
+                )}
                 <AdjuntarDoc
                     pdf_preview={nombramiento}
                     label="6.- Nombramiento (.pdf) - Representante Legal"
                     handleChange={handlePdfNombramientoChange}
                 />
+                {erroresValidacion.nombramiento && (
+                    <p className="text-red-500 text-xs italic">
+                        {erroresValidacion.nombramiento}
+                    </p>
+                )}
             </div>
 
             <div className="flex items-center justify-between">

@@ -83,7 +83,7 @@ const Formulario = () => {
 
         setDia_creado(ano + '-' + mes + '-' + dia)
     }, [])
-
+    const [erroresValidacion, setErroresValidacion] = useState({})
     const [anverso_preview, setAnverso_preview] = useState(null)
     const [reverso_preview, setReverso_preview] = useState(null)
     const [selfie_preview, setSelfie_preview] = useState(null)
@@ -133,6 +133,93 @@ const Formulario = () => {
     const handleSubmit = async e => {
         e.preventDefault()
 
+        let errores = {}
+        if (!numero_ruc)
+            errores.numero_ruc = "El campo 'Número RUC' es obligatorio."
+        if (!razon_social)
+            errores.razon_social = "El campo 'Razon social' es obligatorio."
+        if (!cargo_del_miembro)
+            errores.cargo_del_miembro =
+                "El campo 'Cargo del miembro empresa' es obligatorio."
+        if (!tipo_certificado)
+            errores.tipo_certificado =
+                "El campo 'Tipo de Certificado' es obligatorio."
+        if (!documento_identidad)
+            errores.documento_identidad =
+                "Debe seleccionar un 'Tipo de Documento'."
+        if (!sexo) errores.sexo = "Debe seleccionar el 'Sexo'."
+        if (!fecha_nacimiento)
+            errores.fecha_nacimiento =
+                "El campo 'Fecha de Nacimiento' es obligatorio."
+        if (!nacionalidad)
+            errores.nacionalidad = "El campo 'Nacionalidad' es obligatorio."
+        if (!telefono_celular)
+            errores.telefono_celular =
+                "El campo 'Teléfono Celular' es obligatorio."
+        if (!correo) errores.correo = "El campo 'Correo' es obligatorio."
+        if (!provincia) errores.provincia = "Debe seleccionar una 'Provincia'."
+        if (!ciudad) errores.ciudad = "Debe seleccionar una 'Ciudad'."
+        if (!direccion)
+            errores.direccion = "El campo 'Dirección' es obligatorio."
+        if (!vigencia)
+            errores.vigencia = "Debe seleccionar la 'Vigencia' del certificado."
+
+        // Validaciones para documentos adjuntos
+        if (!imagen_anverso)
+            errores.imagen_anverso =
+                'Debe adjuntar la imagen del anverso del documento.'
+        if (!imagen_reverso)
+            errores.imagen_reverso =
+                'Debe adjuntar la imagen del reverso del documento.'
+        if (!pdf) errores.pdf = 'Debe adjuntar el RUC de la empresa.'
+        if (!imagen_selfie)
+            errores.imagen_selfie = 'Debe adjuntar una selfie con el documento.'
+        if (!constitucion_compañia)
+            errores.constitucion_compañia =
+                'Debe adjuntar el documento de constitución de la compañía.'
+        if (!nombramiento)
+            errores.nombramiento =
+                'Debe adjuntar el documento de nombramiento del representante legal.'
+        if (!autorizacion_representante)
+            errores.autorizacion_representante =
+                'Debe adjuntar la carta de autorización del representante legal.'
+        if (!documento_identidad_representante_legal)
+            errores.documento_identidad_representante_legal =
+                "Debe seleccionar el 'Tipo de Documento' del representante legal."
+        if (!numero_documento_representante_legal)
+            errores.numero_documento_representante_legal =
+                "El 'Número de Documento' del representante legal es obligatorio."
+        if (!nombres_representante_legal)
+            errores.nombres_representante_legal =
+                "El campo 'Nombres del Representante Legal' es obligatorio."
+        if (!apellidos_representante_legal)
+            errores.apellidos_representante_legal =
+                "El campo 'Apellidos del Representante Legal' es obligatorio."
+        if (!cargo_representante)
+            errores.cargo_representante =
+                "El campo 'Cargo del Representante Legal' es obligatorio."
+        if (!motivo_uso_firma)
+            errores.motivo_uso_firma =
+                "El 'Motivo/Uso de la Firma' es obligatorio."
+        if (!numero_documento_miembro_empresa)
+            errores.numero_documento_miembro_empresa =
+                "El 'Número de documento del miembro empresa' es obligatorio."
+        if (!nombres_miembro)
+            errores.nombres_miembro =
+                "El 'Nombres miembro empresa' es obligatorio."
+        if (!apellidos_miembro)
+            errores.apellidos_miembro =
+                "El 'Apellidos miembro empresa' es obligatorio."
+        if (!departamento_que_labora)
+            errores.departamento_que_labora =
+                "El 'Departamento que labora' es obligatorio."
+        // Si hay errores, actualiza el estado y no procede con el envío
+        if (Object.keys(errores).length > 0) {
+            setErroresValidacion(errores)
+            return // Detiene la ejecución si hay errores
+        }
+
+        setErrorServer({})
         // Crear una nueva instancia de FormData y llenarla con los valores del estado
         const formData = new FormData()
         formData.append('dia_creado', dia_creado)
@@ -199,6 +286,7 @@ const Formulario = () => {
                 },
             })
             setEnviado(true)
+            window.location = '/agradecimiento_miembroempresa'
             setAnverso_preview('')
             setReverso_preview('')
             setSelfie_preview('')
@@ -282,7 +370,11 @@ const Formulario = () => {
                         id="numero_ruc"
                     />
                 </div>
-
+                {erroresValidacion.numero_ruc && (
+                    <p className="text-red-500 text-xs italic">
+                        {erroresValidacion.numero_ruc}
+                    </p>
+                )}
                 <div>
                     <label htmlFor="razon_social" className="sr-only">
                         Razón Social{' '}
@@ -297,7 +389,11 @@ const Formulario = () => {
                         id="razon_social"
                     />
                 </div>
-
+                {erroresValidacion.razon_social && (
+                    <p className="text-red-500 text-xs italic">
+                        {erroresValidacion.razon_social}
+                    </p>
+                )}
                 <div>
                     <label htmlFor="cargo_representante" className="sr-only">
                         Cargo del Miembro Empresa{' '}
@@ -312,7 +408,11 @@ const Formulario = () => {
                         id="cargo_miembro"
                     />
                 </div>
-
+                {erroresValidacion.cargo_del_miembro && (
+                    <p className="text-red-500 text-xs italic">
+                        {erroresValidacion.cargo_del_miembro}
+                    </p>
+                )}
                 <h5 className="mt-6">2.- INFORMACIÓN DEL MIEMBRO DE EMPRESA</h5>
                 <div>
                     <input value={dia_creado} type="hidden" id="dia_creado" />
@@ -329,7 +429,11 @@ const Formulario = () => {
                         <option value="PASAPORTE">PASAPORTE</option>
                     </select>
                 </div>
-
+                {erroresValidacion.documento_identidad && (
+                    <p className="text-red-500 text-xs italic">
+                        {erroresValidacion.documento_identidad}
+                    </p>
+                )}
                 {/* Campo de entrada: numero_documento_identidad */}
                 <div>
                     <label
@@ -349,7 +453,11 @@ const Formulario = () => {
                         id="numero_documento_identidad"
                     />
                 </div>
-
+                {erroresValidacion.numero_documento_miembro_empresa && (
+                    <p className="text-red-500 text-xs italic">
+                        {erroresValidacion.numero_documento_miembro_empresa}
+                    </p>
+                )}
                 {/* Campo de entrada: nacionalidad */}
                 <div>
                     <label htmlFor="nacionalidad" className="sr-only">
@@ -365,7 +473,11 @@ const Formulario = () => {
                         id="nacionalidad"
                     />
                 </div>
-
+                {erroresValidacion.nacionalidad && (
+                    <p className="text-red-500 text-xs italic">
+                        {erroresValidacion.nacionalidad}
+                    </p>
+                )}
                 {/* Campo de entrada: nombres */}
                 <div>
                     <label htmlFor="nombres" className="sr-only">
@@ -381,7 +493,11 @@ const Formulario = () => {
                         id="nombres"
                     />
                 </div>
-
+                {erroresValidacion.nombres_miembro && (
+                    <p className="text-red-500 text-xs italic">
+                        {erroresValidacion.nombres_miembro}
+                    </p>
+                )}
                 {/* Campo de entrada: apellidos */}
                 <div>
                     <label htmlFor="apellidos" className="sr-only">
@@ -397,6 +513,11 @@ const Formulario = () => {
                         id="apellidos"
                     />
                 </div>
+                {erroresValidacion.apellidos_miembro && (
+                    <p className="text-red-500 text-xs italic">
+                        {erroresValidacion.apellidos_miembro}
+                    </p>
+                )}
                 <div>
                     <label htmlFor="apellidos" className="sr-only">
                         Departamento que labora
@@ -413,6 +534,11 @@ const Formulario = () => {
                         id="departamento"
                     />
                 </div>
+                {erroresValidacion.departamento_que_labora && (
+                    <p className="text-red-500 text-xs italic">
+                        {erroresValidacion.departamento_que_labora}
+                    </p>
+                )}
                 {/* Campo de entrada: fecha_nacimiento */}
 
                 <div className="flex flex-row items-center pl-[10px]">
@@ -430,7 +556,11 @@ const Formulario = () => {
                         id="fecha_nacimiento"
                     />
                 </div>
-
+                {erroresValidacion.fecha_nacimiento && (
+                    <p className="text-red-500 text-xs italic">
+                        {erroresValidacion.fecha_nacimiento}
+                    </p>
+                )}
                 {/* Campo de entrada: telefono_celular 1 */}
                 <div>
                     <label htmlFor="telefono_movil" className="sr-only">
@@ -446,7 +576,11 @@ const Formulario = () => {
                         id="telefono_movil"
                     />
                 </div>
-
+                {erroresValidacion.telefono_celular && (
+                    <p className="text-red-500 text-xs italic">
+                        {erroresValidacion.telefono_celular}
+                    </p>
+                )}
                 {/* Campo de entrada: telefono_celular 2 */}
                 <div>
                     <label htmlFor="telefono_celular" className="sr-only">
@@ -478,7 +612,11 @@ const Formulario = () => {
                         <option value="FEMENINO">FEMENINO</option>
                     </select>
                 </div>
-
+                {erroresValidacion.sexo && (
+                    <p className="text-red-500 text-xs italic">
+                        {erroresValidacion.sexo}
+                    </p>
+                )}
                 {/* Campo de entrada: correo_principal */}
                 <div>
                     <label htmlFor="correo_principal" className="sr-only">
@@ -494,6 +632,11 @@ const Formulario = () => {
                         id="correo_principal"
                     />
                 </div>
+                {erroresValidacion.correo && (
+                    <p className="text-red-500 text-xs italic">
+                        {erroresValidacion.correo}
+                    </p>
+                )}
                 {/* Campo de entrada: correo_secundario */}
                 <div>
                     <label htmlFor="correo_secundario" className="sr-only">
@@ -531,6 +674,13 @@ const Formulario = () => {
                         <option value="PASAPORTE">PASAPORTE</option>
                     </select>
                 </div>
+                {erroresValidacion.documento_identidad_representante_legal && (
+                    <p className="text-red-500 text-xs italic">
+                        {
+                            erroresValidacion.documento_identidad_representante_legal
+                        }
+                    </p>
+                )}
                 <div>
                     <label
                         htmlFor="numero_documento_identidad"
@@ -551,17 +701,31 @@ const Formulario = () => {
                         id="numero_documento_id"
                     />
                 </div>
+                {erroresValidacion.numero_documento_representante_legal && (
+                    <p className="text-red-500 text-xs italic">
+                        {erroresValidacion.numero_documento_representante_legal}
+                    </p>
+                )}
                 <InputDev
                     valor={cargo_representante}
                     nombre="Cargo del Represente Legal"
                     change={e => setCargo_representante(e.target.value)}
                 />
+                {erroresValidacion.cargo_representante && (
+                    <p className="text-red-500 text-xs italic">
+                        {erroresValidacion.cargo_representante}
+                    </p>
+                )}
                 <InputDev
                     valor={nombres_representante_legal}
                     nombre="Nombres"
                     change={e => setNombres_representante_legal(e.target.value)}
                 />
-
+                {erroresValidacion.nombres_representante_legal && (
+                    <p className="text-red-500 text-xs italic">
+                        {erroresValidacion.nombres_representante_legal}
+                    </p>
+                )}
                 <InputDev
                     valor={apellidos_representante_legal}
                     nombre="Apellidos"
@@ -569,12 +733,21 @@ const Formulario = () => {
                         setApellidos_representante_legal(e.target.value)
                     }
                 />
-
+                {erroresValidacion.apellidos_representante_legal && (
+                    <p className="text-red-500 text-xs italic">
+                        {erroresValidacion.apellidos_representante_legal}
+                    </p>
+                )}
                 <InputDev
                     valor={motivo_uso_firma}
                     nombre="Motivo / uso de la firma"
                     change={e => setMotivo_uso_firma(e.target.value)}
                 />
+                {erroresValidacion.motivo_uso_firma && (
+                    <p className="text-red-500 text-xs italic">
+                        {erroresValidacion.motivo_uso_firma}
+                    </p>
+                )}
             </div>
 
             <div className="max-w-md w-full space-y-8 bg-white p-6 rounded-xl shadow-lg">
@@ -597,7 +770,11 @@ const Formulario = () => {
                         <option value="NUBE">FIRMA EN NUBE</option>
                     </select>
                 </div>
-
+                {erroresValidacion.tipo_certificado && (
+                    <p className="text-red-500 text-xs italic">
+                        {erroresValidacion.tipo_certificado}
+                    </p>
+                )}
                 <div>
                     <label htmlFor="vigencia" className="sr-only">
                         Tiempo de Vigencia
@@ -617,12 +794,32 @@ const Formulario = () => {
                         <option value="30 días">30 días</option>
                     </select>
                 </div>
+                {erroresValidacion.vigencia && (
+                    <p className="text-red-500 text-xs italic">
+                        {erroresValidacion.vigencia}
+                    </p>
+                )}
                 <div>
                     <h5 className="mt-6">
                         5.- DIRECCIÓN COMO CONSTA EN EL RUC DE CIA{' '}
                     </h5>
                 </div>
-                <SelectCiudadProvincia />
+                <SelectCiudadProvincia
+                    errorciudad={
+                        erroresValidacion.ciudad && (
+                            <p className="text-red-500 text-xs italic">
+                                {erroresValidacion.ciudad}
+                            </p>
+                        )
+                    }
+                    errorprovincia={
+                        erroresValidacion.provincia && (
+                            <p className="text-red-500 text-xs italic">
+                                {erroresValidacion.provincia}
+                            </p>
+                        )
+                    }
+                />
 
                 <div>
                     <label htmlFor="apellidos" className="sr-only">
@@ -638,6 +835,11 @@ const Formulario = () => {
                         id="direccion"
                     />
                 </div>
+                {erroresValidacion.direccion && (
+                    <p className="text-red-500 text-xs italic">
+                        {erroresValidacion.direccion}
+                    </p>
+                )}
             </div>
 
             <div className="p-4">
@@ -649,42 +851,71 @@ const Formulario = () => {
                     label="1.-Cédula o pasaporte - anverso (.jpg - .png - foto celular (2Mb)) Representante Legal "
                     handleChange={handleAnversoChange}
                 />
-
+                {erroresValidacion.imagen_anverso && (
+                    <p className="text-red-500 text-xs italic">
+                        {erroresValidacion.imagen_anverso}
+                    </p>
+                )}
                 <AdjuntarDoc
                     imagen_preview={reverso_preview}
                     label="2.- Cédula - reverso (.jpg - .png - foto celular (2Mb)) Representante Legal"
                     handleChange={handleReversoChange}
                 />
-
+                {erroresValidacion.imagen_reverso && (
+                    <p className="text-red-500 text-xs italic">
+                        {erroresValidacion.imagen_reverso}
+                    </p>
+                )}
                 <AdjuntarDoc
                     pdf_preview={pdf}
                     label="3.- RUC (.pdf) Empresa"
                     handleChange={handlePdfRucChange}
                 />
-
+                {erroresValidacion.pdf && (
+                    <p className="text-red-500 text-xs italic">
+                        {erroresValidacion.pdf}
+                    </p>
+                )}
                 <AdjuntarDoc
                     imagen_preview={selfie_preview}
                     label="4.-  Foto selfie de su cara con su cédula debajo de la barbilla (.jpg - .png - foto celular) "
                     handleChange={handleSelfieChange}
                 />
-
+                {erroresValidacion.imagen_selfie && (
+                    <p className="text-red-500 text-xs italic">
+                        {erroresValidacion.imagen_selfie}
+                    </p>
+                )}
                 <AdjuntarDoc
                     pdf_preview={constitucion_compañia}
                     label="5.- constitucion de compañía (.pdf) - Empresa"
                     handleChange={handlePdfConstitucionCompañiaChange}
                 />
-
+                {erroresValidacion.constitucion_compañia && (
+                    <p className="text-red-500 text-xs italic">
+                        {erroresValidacion.constitucion_compañia}
+                    </p>
+                )}
                 <AdjuntarDoc
                     pdf_preview={nombramiento}
                     label="6.- Nombramiento (.pdf) - Representante Legal"
                     handleChange={handlePdfNombramientoChange}
                 />
-
+                {erroresValidacion.nombramiento && (
+                    <p className="text-red-500 text-xs italic">
+                        {erroresValidacion.nombramiento}
+                    </p>
+                )}
                 <AdjuntarDoc
                     pdf_preview={autorizacion_representante}
                     label="7.- Carta de autorización del representante legal al miembro de empresa. (.pdf)"
                     handleChange={handlePdfAutorizacionChange}
                 />
+                {erroresValidacion.autorizacion_representante && (
+                    <p className="text-red-500 text-xs italic">
+                        {erroresValidacion.autorizacion_representante}
+                    </p>
+                )}
             </div>
 
             <div className="flex items-center justify-between">

@@ -633,9 +633,9 @@ const Informacion = () => {
                     label="Cédula o pasaporte - anverso (.jpg - .png - foto celular)"
                     handleChange={handleAnversoChange}
                 />
-                {erroresValidacion.anverso_preview && (
+                {erroresValidacion.imagen_anverso && (
                     <p className="text-red-500 text-xs italic">
-                        {erroresValidacion.anverso_preview}
+                        {erroresValidacion.imagen_anverso}
                     </p>
                 )}
                 <AdjuntarDoc
@@ -643,9 +643,9 @@ const Informacion = () => {
                     label="Cédula - reverso (.jpg - .png - foto celular)"
                     handleChange={handleReversoChange}
                 />
-                {erroresValidacion.reverso_preview && (
+                {erroresValidacion.imagen_reverso && (
                     <p className="text-red-500 text-xs italic">
-                        {erroresValidacion.reverso_preview}
+                        {erroresValidacion.imagen_reverso}
                     </p>
                 )}
                 <AdjuntarDoc
@@ -653,9 +653,9 @@ const Informacion = () => {
                     label="Foto selfie de su cara con su cédula debajo de la barbilla (.jpg - .png - foto celular)"
                     handleChange={handleSelfieChange}
                 />
-                {erroresValidacion.selfie_preview && (
+                {erroresValidacion.imagen_selfie && (
                     <p className="text-red-500 text-xs italic">
-                        {erroresValidacion.selfie_preview}
+                        {erroresValidacion.imagen_selfie}
                     </p>
                 )}
             </div>
