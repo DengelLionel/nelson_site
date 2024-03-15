@@ -487,9 +487,10 @@ const Formulario = () => {
                         value={cedula}
                         onChange={e => setCedula(e.target.value)}
                         className="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-b-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
-                        placeholder="Cedula "
+                        placeholder="Codigo dactilar cédula *opcional"
                         name="cedula"
                         id="cedula"
+                        type="text"
                     />
                 </div>
                 {/* Campo de entrada: sexo */}
@@ -543,8 +544,8 @@ const Formulario = () => {
                         value={distribuidor}
                         onChange={e => setDistribuidor(e.target.value)}
                         className="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-b-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
-                        type="email"
-                        placeholder="CÓdigo distribuidor"
+                        type="text"
+                        placeholder="Código Distribuidor - Promoción *Opcional"
                         name="distribuidor"
                         id="distribuidor"
                     />
