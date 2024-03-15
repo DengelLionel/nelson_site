@@ -262,7 +262,10 @@ const Formulario = () => {
             'nombres_representante_legal',
             nombres_representante_legal,
         )
-        formData.append('constitucion_compania', constitucion_compañia)
+        formData.append(
+            'constitucion_compania',
+            constitucion_compañia && constitucion_compañia,
+        )
         formData.append('nombramiento', nombramiento)
         formData.append(
             'autorizacion_representante',
