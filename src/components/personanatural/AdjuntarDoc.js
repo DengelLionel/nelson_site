@@ -38,7 +38,7 @@ const AdjuntarDoc = ({ label, handleChange, imagen_preview, pdf_preview }) => {
 )} */}
                 <p className="text-xs font-semibold text-gray-500">{label}</p>
                 <div className="mt-4">
-                    <label className="cursor-pointer bg-gray-500 hover:bg-gray-600 text-white px-4 py-2 rounded-md transition-colors duration-200">
+                    <label className="cursor-pointer max-w-[200px] bg-gray-500 hover:bg-gray-600 text-white px-4 py-2 rounded-md transition-colors duration-200">
                         <span>Seleccionar un archivo</span>
                         <input
                             type="file"
