@@ -28,12 +28,12 @@ const Formulario = () => {
         setNacionalidad,
         telefono_celular,
         setTelefono_celular,
-        telefono_celular2,
-        setTelefono_celular2,
+        setCedula,
+        cedula,
         correo,
         setCorreo,
-        correo2,
-        setCorreo2,
+        setDistribuidor,
+        distribuidor,
         setProvincia,
         provincia,
         ciudad,
@@ -74,6 +74,8 @@ const Formulario = () => {
         setMotivo_uso_firma,
         autorizacion_representante,
         setAutorizacion_representante,
+        setComprobantepago,
+        comprobantepago,
     } = useContext(PaginaContextValue)
     useEffect(() => {
         const fechaActual = new Date()
@@ -88,6 +90,7 @@ const Formulario = () => {
     const [reverso_preview, setReverso_preview] = useState(null)
     const [selfie_preview, setSelfie_preview] = useState(null)
     const [pdfruc_preview, setPdfruc_preview] = useState(null)
+    const [pdfComprobante_preview, setPdfComprobante_preview] = useState(null)
     const [enviado, setEnviado] = useState(false)
     const [
         pdfConstitucionCompañia_preview,
@@ -129,7 +132,11 @@ const Formulario = () => {
         const file = e.target.files[0]
         setAutorizacion_representante(file)
     }
-
+    const handlePdfComprobanteChange = e => {
+        const file = e.target.files[0]
+        setComprobantepago(file)
+        setPdfComprobante_preview(URL.createObjectURL(file))
+    }
     const handleSubmit = async e => {
         e.preventDefault()
 
@@ -266,13 +273,17 @@ const Formulario = () => {
         formData.append('imagen_reverso', imagen_reverso)
         formData.append('pdf', pdf)
         formData.append('imagen_selfie', imagen_selfie)
+        formData.append('comprobantepago', comprobantepago)
         formData.append('sexo', sexo)
         formData.append('fecha_nacimiento', fecha_nacimiento)
         formData.append('nacionalidad', nacionalidad)
         formData.append('telefono_celular', telefono_celular)
-        formData.append('telefono_celular2', telefono_celular2)
+        formData.append('cedula', cedula)
         formData.append('correo', correo)
-        formData.append('correo2', correo2)
+        formData.append(
+            'distribuidor',
+            distribuidor != null ? distribuidor : 'No hay',
+        )
         formData.append('provincia', provincia)
         formData.append('ciudad', ciudad)
         formData.append('direccion', direccion)
@@ -313,6 +324,7 @@ const Formulario = () => {
             setAutorizacion_representante('')
             setTipo_certificado('')
             setImagen_anverso('')
+            setComprobantepago('')
             setImagen_reverso('')
             setPdf('')
             setImagen_selfie('')
@@ -320,9 +332,9 @@ const Formulario = () => {
             setFecha_nacimiento('')
             setNacionalidad('')
             setTelefono_celular('')
-            setTelefono_celular2('')
+            setCedula('')
             setCorreo('')
-            setCorreo2('')
+            setDistribuidor('')
             setProvincia('')
             setCiudad('')
             setDireccion('')
@@ -350,6 +362,7 @@ const Formulario = () => {
                 type="hidden"
                 defaultValue={pdfNombramiento_preview}
             />
+            <input type="hidden" value={pdfComprobante_preview} />
             <input
                 style={{ display: 'none' }}
                 type="hidden"
@@ -583,17 +596,16 @@ const Formulario = () => {
                 )}
                 {/* Campo de entrada: telefono_celular 2 */}
                 <div>
-                    <label htmlFor="telefono_celular" className="sr-only">
-                        Celular 2
+                    <label htmlFor="cedula" className="sr-only">
+                        Codigo dactilar cédula *opcional
                     </label>
                     <input
-                        value={telefono_celular2}
-                        onChange={e => setTelefono_celular2(e.target.value)}
+                        value={cedula}
+                        onChange={e => setCedula(e.target.value)}
                         className="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-b-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
-                        type="tel"
-                        placeholder="Teléfono celular 2"
-                        name="telefono_fijo"
-                        id="telefono_fijo"
+                        placeholder="Cedula "
+                        name="cedula"
+                        id="cedula"
                     />
                 </div>
 
@@ -639,17 +651,17 @@ const Formulario = () => {
                 )}
                 {/* Campo de entrada: correo_secundario */}
                 <div>
-                    <label htmlFor="correo_secundario" className="sr-only">
-                        Correo 2
+                    <label htmlFor="distribuidor" className="sr-only">
+                        Código Distribuidor - Promoción *Opcional
                     </label>
                     <input
-                        value={correo2}
-                        onChange={e => setCorreo2(e.target.value)}
+                        value={distribuidor}
+                        onChange={e => setDistribuidor(e.target.value)}
                         className="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-b-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
                         type="email"
-                        placeholder="Correo 2"
-                        name="correo_secundario"
-                        id="correo_secundario"
+                        placeholder="CÓdigo distribuidor"
+                        name="distribuidor"
+                        id="distribuidor"
                     />
                 </div>
 
@@ -916,6 +928,11 @@ const Formulario = () => {
                         {erroresValidacion.autorizacion_representante}
                     </p>
                 )}
+                <AdjuntarDoc
+                    pdf_preview={comprobantepago}
+                    label="7.- Comprobante de pago (.pdf) Opcional"
+                    handleChange={handlePdfComprobanteChange}
+                />
             </div>
 
             <div className="flex items-center justify-between">

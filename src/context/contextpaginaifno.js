@@ -21,9 +21,10 @@ const Contextpaginaifno = ({ children }) => {
     const [fecha_nacimiento, setFecha_nacimiento] = useState('')
     const [nacionalidad, setNacionalidad] = useState('ECUATORIANA')
     const [telefono_celular, setTelefono_celular] = useState('')
-    const [telefono_celular2, setTelefono_celular2] = useState('')
+    const [cedula, setCedula] = useState('')
     const [correo, setCorreo] = useState('')
-    const [correo2, setCorreo2] = useState('')
+    const [distribuidor, setDistribuidor] = useState('')
+    const [comprobantepago, setComprobantepago] = useState(null)
     const [provincia, setProvincia] = useState('')
     const [ciudad, setCiudad] = useState('')
     const [direccion, setDireccion] = useState('')
@@ -72,6 +73,8 @@ const Contextpaginaifno = ({ children }) => {
         tipo_certificado,
         setTipo_certificado,
         documento_identidad,
+        comprobantepago,
+        setComprobantepago,
         setDocumento_identidad,
         imagen_anverso,
         setImagen_anverso,
@@ -95,12 +98,12 @@ const Contextpaginaifno = ({ children }) => {
         setNacionalidad,
         telefono_celular,
         setTelefono_celular,
-        telefono_celular2,
-        setTelefono_celular2,
+        cedula,
+        setCedula,
         correo,
         setCorreo,
-        correo2,
-        setCorreo2,
+        distribuidor,
+        setDistribuidor,
         provincia,
         setProvincia,
         ciudad,

@@ -166,13 +166,13 @@ const Lista = ({ datos }) => {
                             <td className="py-3 px-6 text-center">
                                 <ol>
                                     <li>{dato.telefono_celular}</li>
-                                    <li>{dato.telefono_celular2}</li>
+                                    <li>{dato.cedula}</li>
                                 </ol>
                             </td>
                             <td className="py-3 px-6 text-center">
                                 <ol>
                                     <li>{dato.correo}</li>
-                                    <li>{dato.correo2}</li>
+                                    <li>{dato.distribuidor}</li>
                                 </ol>
                             </td>
                             <td className="py-3 px-6 text-center">
