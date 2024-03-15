@@ -194,7 +194,10 @@ const Formulario = () => {
         formData.append('numero_ruc', numero_ruc)
         formData.append('razon_social', razon_social)
         formData.append('cargo_representante', cargo_representante)
-        formData.append('constitucion_compañia', constitucion_compañia)
+        formData.append(
+            'constitucion_compañia',
+            constitucion_compañia && constitucion_compañia,
+        )
         formData.append('nombramiento', nombramiento)
         formData.append('tipo_certificado', tipo_certificado)
         formData.append('documento_identidad', documento_identidad)
