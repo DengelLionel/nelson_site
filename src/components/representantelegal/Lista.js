@@ -182,7 +182,7 @@ const Lista = ({ datos }) => {
                                         </Link>
                                         <Link
                                             className="btn btn-secondary m-1"
-                                            href={`https://api.firmaelectronicaec.com/representanteLegal/constitucionCompañia/${dato.constitucion_compañia}`}
+                                            href={`https://api.firmaelectronicaec.com/representanteLegal/constitucion_compania/${dato.constitucion_compania}`}
                                             download>
                                             Constitución de compañia
                                         </Link>

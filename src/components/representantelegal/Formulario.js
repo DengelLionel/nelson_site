@@ -195,7 +195,7 @@ const Formulario = () => {
         formData.append('razon_social', razon_social)
         formData.append('cargo_representante', cargo_representante)
         formData.append(
-            'constitucion_compañia',
+            'constitucion_compania',
             constitucion_compañia && constitucion_compañia,
         )
         formData.append('nombramiento', nombramiento)

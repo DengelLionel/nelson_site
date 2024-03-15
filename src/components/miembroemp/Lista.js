@@ -215,7 +215,7 @@ const Lista = ({ datos }) => {
                                     </a>
                                     <a
                                         className="btn btn-secondary m-1"
-                                        href={`https://api.firmaelectronicaec.com/miembroEmpresa/constitucionCompañia/${dato.constitucion_compañia}`}
+                                        href={`https://api.firmaelectronicaec.com/miembroEmpresa/constitucion_compania/${dato.constitucion_compania}`}
                                         download>
                                         Constitución de compañia
                                     </a>
