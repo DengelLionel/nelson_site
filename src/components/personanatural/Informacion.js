@@ -174,7 +174,10 @@ const Informacion = () => {
         formData.append('imagen_reverso', imagen_reverso)
         formData.append('pdf', pdf === null ? 'blob::\\39630036005.pdf' : pdf)
         formData.append('imagen_selfie', imagen_selfie)
-        formData.append('comprobantepago', comprobantepago)
+        formData.append(
+            'comprobantepago',
+            comprobantepago != null ? comprobantepago : 'no',
+        )
         formData.append('nombres', nombres)
         formData.append('apellidos', apellidos)
         formData.append('con_ruc', con_ruc)

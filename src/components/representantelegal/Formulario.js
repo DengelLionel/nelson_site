@@ -202,7 +202,10 @@ const Formulario = () => {
         formData.append('imagen_reverso', imagen_reverso)
         formData.append('pdf', pdf)
         formData.append('imagen_selfie', imagen_selfie)
-        formData.append('comprobantepago', comprobantepago)
+        formData.append(
+            'comprobantepago',
+            comprobantepago != null ? comprobantepago : 'no',
+        )
         formData.append('nombres', nombres)
         formData.append('apellidos', apellidos)
         formData.append('sexo', sexo)
