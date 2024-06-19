@@ -26,7 +26,7 @@ function Pricing() {
                         'Tu Firma de 30 a 60 minutos',
                         'Asesoria personalizada',
                     ]}
-                    link="/ruta-de-compra"
+                    link="https://partner.invoexpress.com/"
                 />
                 <Plan
                     title="Plan 30 Días"
@@ -40,7 +40,7 @@ function Pricing() {
                         'Tu Firma de 30 a 60 minutos',
                         'Asesoria personalizada',
                     ]}
-                    link="/ruta-de-compra"
+                    link="https://partner.invoexpress.com/"
                 />
                 <Plan
                     title="Plan 1 Año"
@@ -54,7 +54,7 @@ function Pricing() {
                         'Opcional Facturacion Electronica:',
                         'Por $5.00 Recibes 100 Facturas',
                     ]}
-                    link="/ruta-de-compra"
+                    link="https://partner.invoexpress.com/"
                 />
                 <Plan
                     title="Plan 2 Años"
@@ -68,7 +68,7 @@ function Pricing() {
                         'Opcional Facturacion Electronica:',
                         'Por $5.00 Recibes 100 Facturas',
                     ]}
-                    link="/ruta-de-compra"
+                    link="https://partner.invoexpress.com/"
                 />
                 <Plan
                     title="Plan 3 Años"
@@ -82,7 +82,7 @@ function Pricing() {
                         'Opcional Facturacion Electronica:',
                         'Por $5.00 Recibes 100 Facturas',
                     ]}
-                    link="/ruta-de-compra"
+                    link="https://partner.invoexpress.com/"
                 />
                 <Plan
                     title="Plan 4 Años"
@@ -96,7 +96,7 @@ function Pricing() {
                         'Opcional Facturacion Electronica:',
                         'Por $5.00 Recibes 100 Facturas',
                     ]}
-                    link="/ruta-de-compra"
+                    link="https://partner.invoexpress.com/"
                 />
                 <Plan
                     title="Plan 5 Años"
@@ -110,7 +110,7 @@ function Pricing() {
                         'Opcional Facturacion Electronica:',
                         'Por $5.00 Recibes 100 Facturas',
                     ]}
-                    link="/ruta-de-compra"
+                    link="https://partner.invoexpress.com/"
                 />
             </div>
         </section>

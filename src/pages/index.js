@@ -7,7 +7,7 @@ import Pricing from '@/components/paginainfo/Pricing'
 import Services from '@/components/paginainfo/Services'
 import ContactSection from '@/components/paginainfo/ContactSection'
 import Footer from '@/components/paginainfo/Footer'
-
+import Whatsapp from '@/components/paginainfo/Whatsapp'
 export default function Home() {
     return (
         <>
@@ -24,12 +24,12 @@ export default function Home() {
                 <Pricing />
                 <Services />
                 <ContactSection />
-
+                <Whatsapp />
                 {/*    <Servicios />
                 <Info />
                 <NuestrasAreas />
                 <ProductosDestacados />
-                <Whatsapp />
+              
                 <ConocePromocines />
                 <Marcas />
                 */}

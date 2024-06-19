@@ -28,13 +28,13 @@ const Hero = () => {
                             <Link
                                 target="_blank"
                                 className="inline-block px-7 py-3 text-sm uppercase tracking-widest text-white bg-blue-500 rounded transition duration-500 hover:bg-blue-600"
-                                href="/requisitos">
+                                href="https://partner.invoexpress.com/solicitudes-firmas.php">
                                 Requisitos
                             </Link>
                             <Link
                                 target="_blank"
                                 className="inline-block px-7 py-3 text-sm uppercase tracking-widest text-white bg-blue-500 rounded transition duration-500 hover:bg-blue-600 ml-2"
-                                href="/solicitud_firma">
+                                href="https://partner.invoexpress.com/solicitudes-firmas.php">
                                 Solicitar
                             </Link>
                         </div>
